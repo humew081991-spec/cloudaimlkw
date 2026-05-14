@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Immutable Backup Storage — Blog</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <nav id="nav">
+    <a href="../index.html" class="nav-mark">Solution <span>Architect</span></a>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../blog.html" class="active">Blog</a></li>
+      <li><a href="../index.html#contact" class="nav-cta">Contact</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+  <main><div class="page-wrap">
+    <header class="post-header">
+      <div class="blog-meta"><span class="blog-date">Feb 2025</span><span class="blog-tag">HCI</span><span class="blog-tag">Storage</span></div>
+      <h1 class="post-headline">vSAN vs Nutanix — choosing the right HCI for your environment</h1>
+      <p style="font-size:13px;color:var(--muted);margin-top:1rem;max-width:560px;line-height:1.8;">Coming soon — this post is in progress.</p>
+    </header>
+    <div style="padding:2rem 0 4rem;"><a href="../blog.html" class="btn-ghost">← All articles</a></div>
+  </div></main>
+  <footer><span class="footer-mark">Solution <span style="font-style:italic;color:var(--accent);">Architect</span></span></footer>
+  <script>
+    document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('navlinks').classList.toggle('open'));
+    window.addEventListener('scroll',()=>{document.getElementById('nav').style.padding=window.scrollY>60?'0.9rem 3rem':'1.4rem 3rem';});
+  </script>
+</body></html>
