@@ -1,63 +1,55 @@
-# cloudaimlkw.com
+# Infrastructure & Cloud Consulting — Personal Website
 
-Official website for **CloudAIML Kuwait** — IT Infrastructure & Cloud Consulting.
+A clean, dark editorial website for an infrastructure and cloud solution architect. Built with vanilla HTML, CSS, and minimal JavaScript — no frameworks, no build tools, zero dependencies.
 
-## 🌐 Live Site
-[cloudaimlkw.com](https://cloudaimlkw.com)
+## Structure
 
-## 🚀 Hosting
-This site is hosted on **GitHub Pages** and served via a custom domain.
-
-## 📁 Structure
 ```
 /
-├── index.html        # Main website (single-page)
-├── CNAME             # Custom domain config for GitHub Pages
+├── index.html          # Homepage (hero, expertise, sectors, ecosystem, experience, certs, contact)
+├── blog.html           # Blog listing page with tag filtering
+├── style.css           # Shared stylesheet (all pages)
+├── blog/
+│   ├── openshift-on-nutanix.html
+│   ├── entra-migration.html
+│   ├── hci-dr-design.html
+│   ├── vsan-vs-nutanix.html
+│   ├── veeam-immutable.html
+│   └── horizon-vdi-scale.html
 └── README.md
 ```
 
-## ⚙️ Setup Instructions
+## Deploying to GitHub Pages
 
-### 1. Push to GitHub
-```bash
-git init
-git add .
-git commit -m "Initial site launch"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/cloudaimlkw.com.git
-git push -u origin main
-```
+1. Create a new repository on GitHub (e.g. `yourusername.github.io` for a root site, or any name for a project site)
+2. Upload all files maintaining the folder structure above
+3. Go to **Settings → Pages**
+4. Under **Source**, select `Deploy from a branch` → `main` → `/ (root)`
+5. Click **Save** — your site will be live in ~60 seconds
 
-### 2. Enable GitHub Pages
-- Go to your repo → **Settings** → **Pages**
-- Source: `Deploy from a branch`
-- Branch: `main` / `/ (root)`
-- Click **Save**
+For a custom domain (e.g. `yourdomain.com`):
+- Add a `CNAME` file to the root with your domain on a single line
+- Point your domain's DNS A records to GitHub Pages IPs: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
 
-### 3. Connect your domain
-- In your domain registrar (where you bought cloudaimlkw.com), add these DNS records:
+## Adding a new blog post
 
-| Type | Name | Value |
-|------|------|-------|
-| A | @ | 185.199.108.153 |
-| A | @ | 185.199.109.153 |
-| A | @ | 185.199.110.153 |
-| A | @ | 185.199.111.153 |
-| CNAME | www | YOUR_USERNAME.github.io |
+1. Copy any existing file from `/blog/` as a template
+2. Update: `<title>`, meta description, `.blog-meta` (date + tags), `<h1 class="post-headline">`, and the article body
+3. Add the post to `blog.html` — copy an existing `.blog-card` block and update the link, `data-tags`, date, tag spans, title, and excerpt
+4. Optionally link from `index.html` in the "Latest writing" section (keep to 3 most recent)
 
-- In GitHub Pages settings, enter `cloudaimlkw.com` as your custom domain
-- Check **Enforce HTTPS** (after DNS propagates, ~24hrs)
+## Customisation
 
-## ✏️ Customization Checklist
-Before going live, update these in `index.html`:
+- **Name / mark**: Search for `Solution Architect` across all files to update the nav brand mark
+- **Contact info**: Update `index.html` `#contact` section — currently shows blog URL and location
+- **Stats**: Update the 4 stat numbers in `index.html` hero section (`12+`, `50+`, `12`, `6`)
+- **Colours**: All colour tokens are CSS variables in `:root` in `style.css`
+- **Fonts**: Google Fonts imports at top of `style.css` — Cormorant Garamond (serif) + DM Mono
 
-- [ ] WhatsApp number (search `96500000000` → replace with your real number)
-- [ ] Email address (`info@cloudaimlkw.com`)
-- [ ] Hero stats (years, projects count)
-- [ ] Contact form — wire up to Formspree or EmailJS for real submissions
+## Design notes
 
-## 📬 Contact Form (Free Option)
-Sign up at [formspree.io](https://formspree.io), create a form, and replace the `handleSubmit` function with their endpoint.
-
----
-Built with plain HTML/CSS/JS — no frameworks, no build step, instant deployment.
+- Dark theme, editorial aesthetic
+- Cormorant Garamond + DM Mono type pairing
+- Mobile responsive with hamburger nav
+- Blog has client-side tag filtering (no server needed)
+- No analytics, no cookies, no trackers — add if needed

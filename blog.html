@@ -16,11 +16,11 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="index.html#expertise">Expertise</a></li>
       <li><a href="index.html#ecosystem">Ecosystem</a></li>
-      <li><a href="index.html#experience">Experience</a></li>
+      <li><a href="index.html#credentials">Credentials</a></li>
       <li><a href="blog.html" class="active">Blog</a></li>
       <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
     </ul>
-    <div class="hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
+    <div class="hamburger" id="hamburger" aria-label="Open menu" role="button" tabindex="0">
       <span></span><span></span><span></span>
     </div>
   </nav>
@@ -28,19 +28,17 @@
   <main>
     <div class="page-wrap">
 
-      <section class="hero" style="padding: 8rem 0 3rem; border-bottom: 0.5px solid var(--line);">
+      <section class="hero" style="padding:8rem 0 3rem;border-bottom:0.5px solid var(--line);">
         <p class="hero-eyebrow">Field notes & technical writing</p>
-        <h1 class="hero-headline" style="font-size: clamp(36px, 5vw, 56px);">
-          Writing about<br>
-          infrastructure <em>that matters.</em>
+        <h1 class="hero-headline" style="font-size:clamp(36px,5vw,56px);">
+          Writing about<br>infrastructure <em>that matters.</em>
         </h1>
         <p class="hero-sub">
-          Practical insights on HCI, virtualisation, containers, identity, and disaster recovery — drawn from 12 years of real-world architecture and deployment work across the Gulf region.
+          Practical insights on HCI, virtualisation, containers, identity, and disaster recovery — drawn from 12 years of real-world architecture and deployment across the Gulf region.
         </p>
       </section>
 
-      <!-- FILTER BAR -->
-      <section style="padding: 2rem 0; border-bottom: 0.5px solid var(--line);">
+      <section style="padding:2rem 0;border-bottom:0.5px solid var(--line);">
         <div style="display:flex;gap:8px;flex-wrap:wrap;">
           <button class="filter-btn active" data-filter="all">All</button>
           <button class="filter-btn" data-filter="openshift">OpenShift</button>
@@ -53,8 +51,7 @@
         </div>
       </section>
 
-      <!-- BLOG LIST -->
-      <section style="padding: 3rem 0;">
+      <section style="padding:3rem 0;">
         <div class="blog-grid" id="blogGrid">
 
           <a href="blog/openshift-on-nutanix.html" class="blog-card" data-tags="openshift hci">
@@ -134,17 +131,6 @@
         </div>
       </section>
 
-      <!-- WRITE FOR THIS BLOG CTA -->
-      <section style="padding:2rem 0 4rem;border-top:none;">
-        <div style="border:0.5px solid var(--line);padding:2.5rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;">
-          <div>
-            <p style="font-family:var(--serif);font-size:24px;font-weight:300;color:var(--ink);margin-bottom:0.5rem;">New articles drop regularly.</p>
-            <p style="font-size:12px;color:var(--muted);">Posts cover real architecture decisions, deployment notes, and lessons from the field — not product marketing.</p>
-          </div>
-          <a href="index.html#contact" class="btn-ghost" style="white-space:nowrap;">Get in touch →</a>
-        </div>
-      </section>
-
     </div>
   </main>
 
@@ -168,26 +154,24 @@
     }
     .filter-btn:hover { color: var(--ink); border-color: var(--muted); }
     .filter-btn.active { color: var(--accent); border-color: var(--accent); }
-    .blog-card[hidden] { display: none; }
   </style>
 
   <script>
     const hb = document.getElementById('hamburger');
     const nl = document.getElementById('navlinks');
     hb.addEventListener('click', () => nl.classList.toggle('open'));
+    hb.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' ') nl.classList.toggle('open'); });
     window.addEventListener('scroll', () => {
       document.getElementById('nav').style.padding = window.scrollY > 60 ? '0.9rem 3rem' : '1.4rem 3rem';
     });
 
-    // Filter logic
     document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         const f = btn.dataset.filter;
         document.querySelectorAll('.blog-card').forEach(card => {
-          const tags = card.dataset.tags || '';
-          card.hidden = f !== 'all' && !tags.includes(f);
+          card.style.display = (f === 'all' || (card.dataset.tags || '').includes(f)) ? '' : 'none';
         });
       });
     });
