@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Infrastructure & Cloud Writing</title>
+  <meta name="description" content="Writing on enterprise infrastructure, cloud architecture, virtualisation, OpenShift, identity, and DR design.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230c0c0b'/><text x='6' y='24' font-size='20' fill='%23c8b89a' font-family='Georgia'>S</text></svg>">
+</head>
+<body>
+
+  <nav id="nav">
+    <a href="index.html" class="nav-mark">Solution <span>Architect</span></a>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#expertise">Expertise</a></li>
+      <li><a href="index.html#ecosystem">Ecosystem</a></li>
+      <li><a href="index.html#experience">Experience</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page-wrap">
+
+      <section class="hero" style="padding: 8rem 0 3rem; border-bottom: 0.5px solid var(--line);">
+        <p class="hero-eyebrow">Field notes & technical writing</p>
+        <h1 class="hero-headline" style="font-size: clamp(36px, 5vw, 56px);">
+          Writing about<br>
+          infrastructure <em>that matters.</em>
+        </h1>
+        <p class="hero-sub">
+          Practical insights on HCI, virtualisation, containers, identity, and disaster recovery — drawn from 12 years of real-world architecture and deployment work across the Gulf region.
+        </p>
+      </section>
+
+      <!-- FILTER BAR -->
+      <section style="padding: 2rem 0; border-bottom: 0.5px solid var(--line);">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="openshift">OpenShift</button>
+          <button class="filter-btn" data-filter="identity">Identity</button>
+          <button class="filter-btn" data-filter="dr">DR & Backup</button>
+          <button class="filter-btn" data-filter="hci">HCI</button>
+          <button class="filter-btn" data-filter="storage">Storage</button>
+          <button class="filter-btn" data-filter="cloud">Cloud</button>
+          <button class="filter-btn" data-filter="vdi">VDI</button>
+        </div>
+      </section>
+
+      <!-- BLOG LIST -->
+      <section style="padding: 3rem 0;">
+        <div class="blog-grid" id="blogGrid">
+
+          <a href="blog/openshift-on-nutanix.html" class="blog-card" data-tags="openshift hci">
+            <div>
+              <div class="blog-meta">
+                <span class="blog-date">May 2025</span>
+                <span class="blog-tag">OpenShift</span>
+                <span class="blog-tag">HCI</span>
+              </div>
+              <p class="blog-title">Running Red Hat OpenShift on Nutanix — what actually changes</p>
+              <p class="blog-excerpt">OpenShift on Nutanix AHV removes a lot of the operational complexity you expect from Kubernetes in production. Here's what the architecture looks like and where the edge cases hide.</p>
+            </div>
+            <span class="blog-arrow">→</span>
+          </a>
+
+          <a href="blog/entra-migration.html" class="blog-card" data-tags="identity">
+            <div>
+              <div class="blog-meta">
+                <span class="blog-date">Apr 2025</span>
+                <span class="blog-tag">Identity</span>
+              </div>
+              <p class="blog-title">Migrating to Microsoft Entra ID — the parts nobody warns you about</p>
+              <p class="blog-excerpt">Entra migrations look clean on paper. In practice there are licensing traps, legacy authentication dependencies, and conditional access conflicts that surface at the worst moments.</p>
+            </div>
+            <span class="blog-arrow">→</span>
+          </a>
+
+          <a href="blog/hci-dr-design.html" class="blog-card" data-tags="dr hci">
+            <div>
+              <div class="blog-meta">
+                <span class="blog-date">Mar 2025</span>
+                <span class="blog-tag">DR Design</span>
+              </div>
+              <p class="blog-title">Designing a DR strategy that actually meets your RPO</p>
+              <p class="blog-excerpt">Most DR designs fail not during disasters but during the design phase — when RPO targets are set without understanding what replication technology can realistically deliver.</p>
+            </div>
+            <span class="blog-arrow">→</span>
+          </a>
+
+          <a href="blog/vsan-vs-nutanix.html" class="blog-card" data-tags="hci storage">
+            <div>
+              <div class="blog-meta">
+                <span class="blog-date">Feb 2025</span>
+                <span class="blog-tag">HCI</span>
+                <span class="blog-tag">Storage</span>
+              </div>
+              <p class="blog-title">vSAN vs Nutanix — choosing the right HCI for your environment</p>
+              <p class="blog-excerpt">Both are mature, proven platforms. The decision comes down to your existing stack, team skills, and where you expect to be in three years — not marketing benchmarks.</p>
+            </div>
+            <span class="blog-arrow">→</span>
+          </a>
+
+          <a href="blog/veeam-immutable.html" class="blog-card" data-tags="dr">
+            <div>
+              <div class="blog-meta">
+                <span class="blog-date">Jan 2025</span>
+                <span class="blog-tag">DR & Backup</span>
+              </div>
+              <p class="blog-title">Why immutable backup storage should be non-negotiable in 2025</p>
+              <p class="blog-excerpt">Ransomware doesn't just encrypt your data — it targets your backups first. Immutable storage changes the equation entirely, and the architecture is simpler than most teams think.</p>
+            </div>
+            <span class="blog-arrow">→</span>
+          </a>
+
+          <a href="blog/horizon-vdi-scale.html" class="blog-card" data-tags="vdi">
+            <div>
+              <div class="blog-meta">
+                <span class="blog-date">Dec 2024</span>
+                <span class="blog-tag">VDI</span>
+              </div>
+              <p class="blog-title">Scaling VMware Horizon without destroying your storage budget</p>
+              <p class="blog-excerpt">Large VDI deployments punish under-engineered storage designs quickly. Here's how to size correctly from the start and where the common mistakes happen at 500+ seats.</p>
+            </div>
+            <span class="blog-arrow">→</span>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- WRITE FOR THIS BLOG CTA -->
+      <section style="padding:2rem 0 4rem;border-top:none;">
+        <div style="border:0.5px solid var(--line);padding:2.5rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;">
+          <div>
+            <p style="font-family:var(--serif);font-size:24px;font-weight:300;color:var(--ink);margin-bottom:0.5rem;">New articles drop regularly.</p>
+            <p style="font-size:12px;color:var(--muted);">Posts cover real architecture decisions, deployment notes, and lessons from the field — not product marketing.</p>
+          </div>
+          <a href="index.html#contact" class="btn-ghost" style="white-space:nowrap;">Get in touch →</a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <span class="footer-mark">Solution <span style="font-style:italic;color:var(--accent);">Architect</span></span>
+    <span class="footer-note">Infrastructure & Cloud Consulting</span>
+  </footer>
+
+  <style>
+    .filter-btn {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border: 0.5px solid var(--line2);
+      color: var(--muted);
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover { color: var(--ink); border-color: var(--muted); }
+    .filter-btn.active { color: var(--accent); border-color: var(--accent); }
+    .blog-card[hidden] { display: none; }
+  </style>
+
+  <script>
+    const hb = document.getElementById('hamburger');
+    const nl = document.getElementById('navlinks');
+    hb.addEventListener('click', () => nl.classList.toggle('open'));
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').style.padding = window.scrollY > 60 ? '0.9rem 3rem' : '1.4rem 3rem';
+    });
+
+    // Filter logic
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.dataset.filter;
+        document.querySelectorAll('.blog-card').forEach(card => {
+          const tags = card.dataset.tags || '';
+          card.hidden = f !== 'all' && !tags.includes(f);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
