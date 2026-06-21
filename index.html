@@ -2,1195 +2,310 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CloudAIML Kuwait — Independent IT & Cloud Consulting</title>
-<meta name="description" content="Enterprise IT infrastructure consulting in Kuwait. Greenfield architecture, brownfield migration, OpenShift, AWS, Azure, Nutanix, VMware. Vendor-independent advisory.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-:root {
-  --bg: #0c0c0b;
-  --bg2: #111110;
-  --bg3: #161614;
-  --border: #1f1f1c;
-  --border2: #2a2a27;
-  --text: #e8e6e0;
-  --text2: #888880;
-  --text3: #444440;
-  --accent: #c8a96e;
-  --accent2: #8b6f42;
-  --red: #c0392b;
-  --white: #f4f2ec;
-}
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* ── NOISE TEXTURE OVERLAY ── */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.4;
-}
-
-/* ── LAYOUT ── */
-.container { max-width: 1100px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 1; }
-
-/* ── NAV ── */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  border-bottom: 1px solid var(--border);
-  background: rgba(12,12,11,0.92);
-  backdrop-filter: blur(12px);
-}
-.nav-inner {
-  max-width: 1100px; margin: 0 auto; padding: 0 40px;
-  height: 60px;
-  display: flex; align-items: center; justify-content: space-between;
-}
-.nav-logo {
-  font-family: 'DM Mono', monospace;
-  font-size: 13px;
-  font-weight: 400;
-  color: var(--accent);
-  letter-spacing: 0.08em;
-  text-decoration: none;
-}
-.nav-links { display: flex; gap: 32px; align-items: center; }
-.nav-links a {
-  font-size: 12px;
-  font-weight: 400;
-  color: var(--text2);
-  text-decoration: none;
-  letter-spacing: 0.04em;
-  transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--text); }
-.nav-cta {
-  font-size: 11px !important;
-  font-weight: 500 !important;
-  color: var(--bg) !important;
-  background: var(--accent);
-  padding: 8px 18px;
-  border-radius: 2px;
-  letter-spacing: 0.06em;
-  transition: background 0.2s !important;
-}
-.nav-cta:hover { background: var(--white) !important; color: var(--bg) !important; }
-
-/* ── HERO ── */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-top: 100px;
-  padding-bottom: 80px;
-  position: relative;
-  overflow: hidden;
-}
-
-/* vertical rule decoration */
-.hero::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 0; bottom: 0;
-  width: 1px;
-  background: linear-gradient(to bottom, transparent, var(--border) 20%, var(--border) 80%, transparent);
-  opacity: 0.5;
-}
-
-.hero-eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 28px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards 0.1s;
-}
-.hero-eyebrow-line { width: 24px; height: 1px; background: var(--accent); }
-.hero-eyebrow span {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  color: var(--accent);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.hero-headline {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(48px, 7vw, 88px);
-  font-weight: 300;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: var(--white);
-  max-width: 820px;
-  margin-bottom: 32px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards 0.25s;
-}
-.hero-headline em {
-  font-style: italic;
-  color: var(--accent);
-}
-
-.hero-sub {
-  font-size: 16px;
-  font-weight: 300;
-  color: var(--text2);
-  max-width: 520px;
-  line-height: 1.75;
-  margin-bottom: 44px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards 0.4s;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  margin-bottom: 72px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards 0.55s;
-}
-.btn-primary {
-  font-family: 'DM Mono', monospace;
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0.08em;
-  color: var(--bg);
-  background: var(--accent);
-  padding: 14px 28px;
-  border-radius: 2px;
-  text-decoration: none;
-  transition: background 0.2s, transform 0.15s;
-  display: inline-block;
-}
-.btn-primary:hover { background: var(--white); transform: translateY(-1px); }
-.btn-ghost {
-  font-family: 'DM Mono', monospace;
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0.08em;
-  color: var(--text2);
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: color 0.2s;
-}
-.btn-ghost:hover { color: var(--text); }
-.btn-ghost::after { content: '→'; transition: transform 0.2s; }
-.btn-ghost:hover::after { transform: translateX(4px); }
-
-.hero-stats {
-  display: flex;
-  gap: 48px;
-  padding-top: 40px;
-  border-top: 1px solid var(--border);
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards 0.7s;
-}
-.stat-item {}
-.stat-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 40px;
-  font-weight: 300;
-  color: var(--white);
-  line-height: 1;
-  letter-spacing: -0.02em;
-}
-.stat-num span { color: var(--accent); }
-.stat-label {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  color: var(--text3);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-top: 6px;
-}
-
-/* ── SECTION SHARED ── */
-section { padding: 100px 0; position: relative; z-index: 1; }
-.section-border { border-top: 1px solid var(--border); }
-
-.section-header { margin-bottom: 64px; }
-.section-tag {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  color: var(--accent);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.section-tag::before { content: '//'; color: var(--text3); }
-.section-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(32px, 4vw, 52px);
-  font-weight: 300;
-  color: var(--white);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-}
-.section-title em { font-style: italic; color: var(--accent); }
-
-/* ── SERVICES ── */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-}
-.service-card {
-  background: var(--bg);
-  padding: 48px 44px;
-  transition: background 0.3s;
-  position: relative;
-  overflow: hidden;
-}
-.service-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 3px;
-  height: 0;
-  background: var(--accent);
-  transition: height 0.4s ease;
-}
-.service-card:hover { background: var(--bg2); }
-.service-card:hover::before { height: 100%; }
-
-.service-num {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  color: var(--text3);
-  letter-spacing: 0.15em;
-  margin-bottom: 24px;
-}
-.service-icon {
-  font-size: 28px;
-  margin-bottom: 20px;
-  display: block;
-  filter: grayscale(0.4);
-}
-.service-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 26px;
-  font-weight: 400;
-  color: var(--white);
-  line-height: 1.2;
-  margin-bottom: 16px;
-  letter-spacing: -0.01em;
-}
-.service-desc {
-  font-size: 14px;
-  color: var(--text2);
-  line-height: 1.75;
-  margin-bottom: 24px;
-}
-.service-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-.service-tag {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  color: var(--text3);
-  border: 1px solid var(--border2);
-  padding: 4px 10px;
-  border-radius: 1px;
-  letter-spacing: 0.05em;
-  transition: border-color 0.2s, color 0.2s;
-}
-.service-card:hover .service-tag { border-color: var(--border2); color: var(--text2); }
-
-/* managed services spans full width */
-.service-card.wide {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: start;
-}
-.service-card.wide .service-left {}
-.service-card.wide .service-right {
-  padding-top: 54px;
-}
-.managed-items {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  align-items: start;
-}
-.managed-item {
-  padding: 16px;
-  border: 1px solid var(--border);
-  border-radius: 1px;
-  transition: border-color 0.2s;
-}
-.service-card.wide:hover .managed-item { border-color: var(--border2); }
-.managed-item-title {
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--text);
-  margin-bottom: 4px;
-}
-.managed-item-desc {
-  font-size: 11px;
-  color: var(--text3);
-  line-height: 1.6;
-}
-
-/* ── HOW WE WORK ── */
-.approach-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
-}
-.approach-item { position: relative; padding-left: 24px; }
-.approach-item::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 8px;
-  width: 1px; height: calc(100% - 16px);
-  background: var(--border2);
-}
-.approach-step {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  color: var(--accent);
-  letter-spacing: 0.15em;
-  margin-bottom: 12px;
-}
-.approach-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  font-weight: 400;
-  color: var(--white);
-  margin-bottom: 12px;
-}
-.approach-desc {
-  font-size: 13px;
-  color: var(--text2);
-  line-height: 1.75;
-}
-
-/* ── EXPERTISE / TECH STACK ── */
-.expertise-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-}
-.expertise-cat {
-  background: var(--bg);
-  padding: 32px 28px;
-  transition: background 0.2s;
-}
-.expertise-cat:hover { background: var(--bg2); }
-.expertise-cat-title {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  color: var(--accent);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--border);
-}
-.expertise-products {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-}
-.product-tag {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  color: var(--text2);
-  background: var(--bg3);
-  padding: 5px 10px;
-  border-radius: 1px;
-  letter-spacing: 0.04em;
-  transition: color 0.2s, background 0.2s;
-}
-.expertise-cat:hover .product-tag { color: var(--text); background: var(--border); }
-
-/* ── SECTORS ── */
-.sectors-row {
-  display: flex;
-  gap: 0;
-  border: 1px solid var(--border);
-  overflow: hidden;
-}
-.sector-item {
-  flex: 1;
-  padding: 28px 24px;
-  border-right: 1px solid var(--border);
-  transition: background 0.2s;
-  text-align: center;
-}
-.sector-item:last-child { border-right: none; }
-.sector-item:hover { background: var(--bg2); }
-.sector-icon { font-size: 22px; display: block; margin-bottom: 10px; filter: grayscale(0.3); }
-.sector-name {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  color: var(--text2);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-/* ── DIFFERENTIATORS ── */
-.diff-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-}
-.diff-item {}
-.diff-label {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  color: var(--accent);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-.diff-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
-  font-weight: 400;
-  color: var(--white);
-  margin-bottom: 10px;
-}
-.diff-desc {
-  font-size: 13px;
-  color: var(--text2);
-  line-height: 1.75;
-}
-
-/* ── CONTACT ── */
-.contact-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: start;
-}
-.contact-left {}
-.contact-pitch {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(28px, 3.5vw, 44px);
-  font-weight: 300;
-  color: var(--white);
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  margin-bottom: 24px;
-}
-.contact-pitch em { font-style: italic; color: var(--accent); }
-.contact-desc {
-  font-size: 14px;
-  color: var(--text2);
-  line-height: 1.75;
-  margin-bottom: 32px;
-}
-.contact-links { display: flex; flex-direction: column; gap: 14px; }
-.contact-link {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  text-decoration: none;
-  color: var(--text2);
-  font-size: 14px;
-  transition: color 0.2s;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--border);
-}
-.contact-link:hover { color: var(--white); }
-.contact-link:last-child { border-bottom: none; }
-.contact-link-icon {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  color: var(--text3);
-  letter-spacing: 0.1em;
-  width: 72px;
-  flex-shrink: 0;
-}
-.contact-link:hover .contact-link-icon { color: var(--accent); }
-.contact-link-arrow { margin-left: auto; color: var(--text3); transition: transform 0.2s, color 0.2s; }
-.contact-link:hover .contact-link-arrow { transform: translateX(4px); color: var(--accent); }
-
-.contact-right {}
-.assessment-card {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  padding: 40px;
-}
-.assessment-tag {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  color: var(--accent);
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-.assessment-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 28px;
-  font-weight: 300;
-  color: var(--white);
-  line-height: 1.2;
-  margin-bottom: 16px;
-}
-.assessment-desc {
-  font-size: 13px;
-  color: var(--text2);
-  line-height: 1.75;
-  margin-bottom: 28px;
-}
-.assessment-items { margin-bottom: 32px; }
-.assessment-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 10px 0;
-  border-bottom: 1px solid var(--border);
-  font-size: 13px;
-  color: var(--text2);
-}
-.assessment-item:last-child { border-bottom: none; }
-.assessment-item::before {
-  content: '✓';
-  color: var(--accent);
-  font-size: 11px;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-.assessment-cta {
-  display: block;
-  text-align: center;
-  background: var(--accent);
-  color: var(--bg);
-  font-family: 'DM Mono', monospace;
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0.08em;
-  padding: 16px;
-  text-decoration: none;
-  transition: background 0.2s;
-}
-.assessment-cta:hover { background: var(--white); }
-
-/* ── FOOTER ── */
-footer {
-  border-top: 1px solid var(--border);
-  padding: 40px 0;
-  position: relative;
-  z-index: 1;
-}
-.footer-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.footer-logo {
-  font-family: 'DM Mono', monospace;
-  font-size: 12px;
-  color: var(--text3);
-  letter-spacing: 0.1em;
-}
-.footer-note {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  color: var(--text3);
-  letter-spacing: 0.06em;
-}
-.footer-links { display: flex; gap: 24px; }
-.footer-links a {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  color: var(--text3);
-  text-decoration: none;
-  letter-spacing: 0.08em;
-  transition: color 0.2s;
-}
-.footer-links a:hover { color: var(--text2); }
-
-/* ── ANIMATIONS ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-.reveal.visible { opacity: 1; transform: translateY(0); }
-
-.form-group { margin-bottom: 10px; }
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  background: var(--bg3);
-  border: 1px solid var(--border2);
-  color: var(--text);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 13px;
-  font-weight: 300;
-  padding: 11px 14px;
-  border-radius: 1px;
-  outline: none;
-  transition: border-color 0.2s;
-  resize: none;
-}
-.form-group input::placeholder,
-.form-group textarea::placeholder { color: var(--text3); }
-.form-group input:focus,
-.form-group textarea:focus { border-color: var(--accent2); }
-button.assessment-cta {
-  width: 100%;
-  border: none;
-  cursor: pointer;
-  font-family: 'DM Mono', monospace;
-  margin-top: 4px;
-}
-button.assessment-cta:disabled { opacity: 0.5; cursor: not-allowed; }
-
-@media (max-width: 768px) {
-  .container { padding: 0 20px; }
-  .nav-links { display: none; }
-  .services-grid { grid-template-columns: 1fr; }
-  .service-card.wide { grid-template-columns: 1fr; }
-  .approach-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
-  .expertise-grid { grid-template-columns: 1fr 1fr; }
-  .diff-grid { grid-template-columns: 1fr; }
-  .contact-inner { grid-template-columns: 1fr; gap: 48px; }
-  .hero-stats { flex-wrap: wrap; gap: 28px; }
-  .sectors-row { flex-wrap: wrap; }
-  .sector-item { flex: 0 0 50%; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-  .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
-  .managed-items { grid-template-columns: 1fr; }
-}
-</style>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cloud AI ML Consulting — Enterprise Infrastructure & Cloud, Kuwait</title>
+<meta name="description" content="Independent infrastructure and cloud consulting practice based in Kuwait. 12 years delivering HCI, OpenShift, Entra ID, DR, and virtualisation for banks, government, and enterprise.">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230c0c0b'/><text x='4' y='24' font-size='18' fill='%23c8b89a' font-family='Georgia'>CA</text></svg>">
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-inner">
-    <a href="/" class="nav-logo">CLOUDAIML · KW</a>
-    <div class="nav-links">
-      <a href="#services">Services</a>
-      <a href="#expertise">Expertise</a>
-      <a href="#approach">Approach</a>
-      <a href="blog.html">Blog</a>
-      <a href="#contact" class="nav-cta">Get in touch</a>
-    </div>
-  </div>
+<nav id="nav">
+  <a href="index.html" class="nav-mark">Cloud<span>AIML</span></a>
+  <ul class="nav-links" id="nl">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="blog.html">Insights</a></li>
+    <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
+  </ul>
+  <button class="hamburger" id="hb" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="container">
-    <div class="hero-eyebrow">
-      <div class="hero-eyebrow-line"></div>
-      <span>Kuwait · Gulf · MENA · Independent</span>
-    </div>
-    <h1 class="hero-headline">
-      When your infrastructure<br>needs to <em>evolve</em>,<br>not just survive.
+<main>
+<div class="wrap">
+
+  <!-- HERO -->
+  <section class="hero" style="border-bottom:none">
+    <p class="hero-eyebrow">Kuwait · Gulf Region · Available Globally</p>
+    <h1 class="hero-hed">
+      Enterprise infrastructure<br>
+      built for the <em>demands</em><br>
+      of critical operations.
     </h1>
-    <p class="hero-sub">
-      Vendor-independent IT consulting for banks, ministries, and enterprises across Kuwait. We architect greenfield environments and migrate complex brownfield estates — with no reseller agenda.
-    </p>
-    <div class="hero-actions">
-      <a href="#contact" class="btn-primary">Start with a free assessment</a>
-      <a href="#services" class="btn-ghost">See how we work</a>
-    </div>
+    <p class="hero-sub">An independent consulting practice with 12 years delivering hyper-converged infrastructure, cloud platforms, identity modernisation, and disaster recovery across banking, government, and enterprise in Kuwait and the wider Gulf.</p>
     <div class="hero-stats">
-      <div class="stat-item">
-        <div class="stat-num">12<span>+</span></div>
-        <div class="stat-label">Years in Kuwait</div>
+      <div><p class="stat-n">12+</p><p class="stat-l">Years experience</p></div>
+      <div><p class="stat-n">50+</p><p class="stat-l">Projects delivered</p></div>
+      <div><p class="stat-n">12</p><p class="stat-l">Sectors served</p></div>
+      <div><p class="stat-n">20+</p><p class="stat-l">Certifications</p></div>
+    </div>
+    <div class="hero-btns">
+      <a href="contact.html" class="btn btn-pri">Discuss your project →</a>
+      <a href="services.html" class="btn btn-ghost">View services →</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- WHAT THE PROBLEM IS -->
+<section style="background:var(--bg2)">
+  <div class="wrap">
+    <p class="label">The challenge</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center">
+      <div>
+        <h2 style="font-family:var(--serif);font-size:clamp(28px,4vw,42px);font-weight:300;color:var(--ink);line-height:1.2;margin-bottom:1.5rem">
+          Enterprise IT is complex.<br>
+          <em>Getting it right matters.</em>
+        </h2>
+        <p style="font-size:13px;line-height:1.9;color:var(--muted);margin-bottom:1rem">Whether you're migrating off ageing VMware infrastructure, deploying OpenShift for containerised workloads, or designing a DR strategy that will actually hold under pressure — the architecture decisions you make today shape your operations for years.</p>
+        <p style="font-size:13px;line-height:1.9;color:var(--muted)">Cloud AI ML Consulting brings vendor-independent expertise across the full infrastructure stack — from pre-sales architecture through to hands-on delivery and post-implementation support.</p>
       </div>
-      <div class="stat-item">
-        <div class="stat-num">40<span>+</span></div>
-        <div class="stat-label">Projects delivered</div>
+      <div style="display:flex;flex-direction:column;gap:1px;background:var(--line);border:0.5px solid var(--line)">
+        <div style="background:var(--bg);padding:1.4rem 1.6rem;border-bottom:0.5px solid var(--line)">
+          <p style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent2);margin-bottom:0.4rem">VMware / Broadcom disruption</p>
+          <p style="font-size:12px;color:var(--muted);line-height:1.7">Licensing changes are forcing organisations to re-evaluate their virtualisation stack. Independent advice on migration paths — Nutanix, OpenShift, or hybrid cloud.</p>
+        </div>
+        <div style="background:var(--bg);padding:1.4rem 1.6rem;border-bottom:0.5px solid var(--line)">
+          <p style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent2);margin-bottom:0.4rem">Kuwait digital transformation</p>
+          <p style="font-size:12px;color:var(--muted);line-height:1.7">Government and enterprise investment in digital infrastructure is accelerating. Architecture expertise aligned to New Kuwait 2035 and e-government programmes.</p>
+        </div>
+        <div style="background:var(--bg);padding:1.4rem 1.6rem">
+          <p style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent2);margin-bottom:0.4rem">Identity modernisation</p>
+          <p style="font-size:12px;color:var(--muted);line-height:1.7">On-premises Active Directory to Microsoft Entra ID — the migration has dependencies and traps that only surface mid-project without proper planning.</p>
+        </div>
       </div>
-      <div class="stat-item">
-        <div class="stat-num">20<span>+</span></div>
-        <div class="stat-label">Enterprise clients</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <p class="label">Services</p>
+    <div class="svc-grid">
+
+      <a href="services/hci.html" class="svc-card">
+        <p class="svc-num">01</p>
+        <p class="svc-title">Hyper-Converged Infrastructure</p>
+        <p class="svc-desc">Architecture, deployment, and migration for Nutanix AHV, VMware vSphere, and Cisco HyperFlex. Greenfield builds, brownfield migrations, and multi-site scaling.</p>
+        <span class="svc-link">Learn more →</span>
+      </a>
+
+      <a href="services/virtualisation-vdi.html" class="svc-card">
+        <p class="svc-num">02</p>
+        <p class="svc-title">Virtualisation & VDI</p>
+        <p class="svc-desc">End-to-end virtual desktop and application delivery. VMware Horizon, Citrix CVAD, NSX-T network virtualisation, vSAN, App Volumes, and UEM.</p>
+        <span class="svc-link">Learn more →</span>
+      </a>
+
+      <a href="services/backup-dr.html" class="svc-card">
+        <p class="svc-num">03</p>
+        <p class="svc-title">Backup & Disaster Recovery</p>
+        <p class="svc-desc">DR strategy design, RPO/RTO architecture, and implementation across Veeam, Zerto, Rubrik, Commvault, and Veritas NetBackup. Immutable storage and tested recovery.</p>
+        <span class="svc-link">Learn more →</span>
+      </a>
+
+      <a href="services/openshift.html" class="svc-card current">
+        <p class="svc-num">04</p>
+        <p class="svc-title">Red Hat OpenShift & Containers</p>
+        <p class="svc-desc">OpenShift platform architecture on VMware and Nutanix. Container strategy, IPI/UPI cluster design, CSI storage integration, and workload migration to cloud-native.</p>
+        <span class="svc-link">Learn more →</span>
+      </a>
+
+      <a href="services/identity.html" class="svc-card current">
+        <p class="svc-num">05</p>
+        <p class="svc-title">Identity & Entra Migration</p>
+        <p class="svc-desc">Active Directory to Microsoft Entra ID — hybrid identity design, Entra Connect, conditional access, legacy authentication remediation, and Intune device management.</p>
+        <span class="svc-link">Learn more →</span>
+      </a>
+
+      <a href="services/storage.html" class="svc-card">
+        <p class="svc-num">06</p>
+        <p class="svc-title">Enterprise Storage</p>
+        <p class="svc-desc">Flash storage design and SAN/NAS architecture. Pure Storage FlashArray, IBM FlashSystem and StorWise, VMware vSAN — workload-tiered, cost-aligned.</p>
+        <span class="svc-link">Learn more →</span>
+      </a>
+
+    </div>
+    <div style="margin-top:1.5rem;display:flex;gap:1rem">
+      <a href="services.html" class="btn btn-ghost">All services →</a>
+      <a href="contact.html" class="btn btn-ghost">Request a scoping call →</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE DELIVER -->
+<section style="background:var(--bg2)">
+  <div class="wrap">
+    <p class="label">What you get</p>
+    <div class="outcomes">
+      <div class="outcome">
+        <p class="outcome-title">Vendor-independent architecture</p>
+        <p class="outcome-desc">No reseller relationships, no quota pressure. Recommendations are driven by your workload, budget, and long-term operating model — not vendor preference.</p>
       </div>
-      <div class="stat-item">
-        <div class="stat-num">20<span>+</span></div>
-        <div class="stat-label">Vendor Certifications</div>
+      <div class="outcome">
+        <p class="outcome-title">Senior expertise, boutique delivery</p>
+        <p class="outcome-desc">12 years of architecture and delivery experience across the Gulf's most demanding environments — banks, ministries, healthcare — applied directly to your project.</p>
+      </div>
+      <div class="outcome">
+        <p class="outcome-title">End-to-end ownership</p>
+        <p class="outcome-desc">From requirements through architecture, BoQ, implementation, and handover. One point of accountability across the full project lifecycle.</p>
+      </div>
+      <div class="outcome">
+        <p class="outcome-title">Practical documentation</p>
+        <p class="outcome-desc">Architecture blueprints, as-built documentation, runbooks, and handover packs that your team can actually operate from — not shelf-ware.</p>
+      </div>
+      <div class="outcome">
+        <p class="outcome-title">Pre-sales & RFP support</p>
+        <p class="outcome-desc">Technical proposal writing, BoQ preparation, PoC design, and C-level workshop delivery. Win more projects with better technical content.</p>
+      </div>
+      <div class="outcome">
+        <p class="outcome-title">Gulf region fluency</p>
+        <p class="outcome-desc">Deep familiarity with Kuwait's procurement landscape, government digital transformation programmes, and enterprise IT operating environment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section>
+  <div class="wrap">
+    <p class="label">How it works</p>
+    <div class="process">
+      <div class="process-step">
+        <p class="step-n">01</p>
+        <p class="step-title">Assess</p>
+        <p class="step-desc">Discovery call to understand your environment, constraints, and objectives. No commitment required at this stage.</p>
+      </div>
+      <div class="process-step">
+        <p class="step-n">02</p>
+        <p class="step-title">Architect</p>
+        <p class="step-desc">Solution design, vendor evaluation, BoQ, and architecture documentation aligned to your requirements and budget.</p>
+      </div>
+      <div class="process-step">
+        <p class="step-n">03</p>
+        <p class="step-title">Deliver</p>
+        <p class="step-desc">Hands-on implementation, PoC execution, configuration, migration, and integration — with progress visibility throughout.</p>
+      </div>
+      <div class="process-step">
+        <p class="step-n">04</p>
+        <p class="step-title">Support</p>
+        <p class="step-desc">Post-implementation handover, knowledge transfer, and ongoing advisory retainer or managed support options.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- SECTORS -->
-<div class="container reveal" style="margin-bottom: 0; position: relative; z-index: 1;">
-  <div class="sectors-row">
-    <div class="sector-item">
-      <span class="sector-icon">🏦</span>
-      <div class="sector-name">Banking</div>
-    </div>
-    <div class="sector-item">
-      <span class="sector-icon">🏛</span>
-      <div class="sector-name">Government</div>
-    </div>
-    <div class="sector-item">
-      <span class="sector-icon">⛽</span>
-      <div class="sector-name">Oil &amp; Gas</div>
-    </div>
-    <div class="sector-item">
-      <span class="sector-icon">🏥</span>
-      <div class="sector-name">Healthcare</div>
-    </div>
-    <div class="sector-item">
-      <span class="sector-icon">🛍</span>
-      <div class="sector-name">Retail</div>
-    </div>
-    <div class="sector-item">
-      <span class="sector-icon">🏭</span>
-      <div class="sector-name">Manufacturing</div>
-    </div>
-  </div>
-</div>
-
-<!-- SERVICES -->
-<section class="section-border" id="services">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="section-tag">Services</div>
-      <h2 class="section-title">What we <em>deliver</em></h2>
-    </div>
-    <div class="services-grid reveal">
-
-      <!-- GREENFIELD -->
-      <div class="service-card">
-        <div class="service-num">01</div>
-        <span class="service-icon">🏗</span>
-        <h3 class="service-title">Greenfield Architecture</h3>
-        <p class="service-desc">
-          Building from a blank slate is an opportunity to get it right. We design enterprise IT environments with the right foundations — hyperconverged infrastructure, cloud-native platforms, identity architecture, network virtualisation, and DR strategy — before a single server is racked.
-        </p>
-        <div class="service-tags">
-          <span class="service-tag">HCI Design</span>
-          <span class="service-tag">OpenShift Platform</span>
-          <span class="service-tag">Identity Architecture</span>
-          <span class="service-tag">Storage Design</span>
-          <span class="service-tag">DR Strategy</span>
-          <span class="service-tag">Network Virtualisation</span>
-        </div>
-      </div>
-
-      <!-- BROWNFIELD -->
-      <div class="service-card">
-        <div class="service-num">02</div>
-        <span class="service-icon">🔄</span>
-        <h3 class="service-title">Brownfield Migration</h3>
-        <p class="service-desc">
-          Legacy environments don't have to be a liability. Whether you're escaping VMware's licensing shock, moving from on-premises Active Directory to Microsoft Entra ID, or containerising traditional workloads onto OpenShift — we assess, plan, and execute with minimal disruption to the business.
-        </p>
-        <div class="service-tags">
-          <span class="service-tag">VMware → Nutanix</span>
-          <span class="service-tag">AD → Entra ID</span>
-          <span class="service-tag">VM → Containers</span>
-          <span class="service-tag">Exchange → O365</span>
-          <span class="service-tag">Storage Migration</span>
-          <span class="service-tag">DR Modernisation</span>
-        </div>
-      </div>
-
-      <!-- DIGITAL TRANSFORMATION -->
-      <div class="service-card">
-        <div class="service-num">03</div>
-        <span class="service-icon">🧭</span>
-        <h3 class="service-title">Digital Transformation Advisory</h3>
-        <p class="service-desc">
-          For organisations with a mandate to modernise but no clear roadmap. We conduct readiness assessments, map your application portfolio to cloud-native delivery, design OpenShift-based developer platforms, and build DevOps pipelines — translating strategy into an actionable sequence of steps with measurable outcomes.
-        </p>
-        <div class="service-tags">
-          <span class="service-tag">Readiness Assessment</span>
-          <span class="service-tag">OpenShift Strategy</span>
-          <span class="service-tag">DevOps Enablement</span>
-          <span class="service-tag">Cloud Adoption</span>
-          <span class="service-tag">App Modernisation</span>
-          <span class="service-tag">Vendor Selection</span>
-        </div>
-      </div>
-
-      <!-- MANAGED SERVICES — full width -->
-      <div class="service-card wide">
-        <div class="service-left">
-          <div class="service-num">04</div>
-          <span class="service-icon">⚙️</span>
-          <h3 class="service-title">Managed Services & Support</h3>
-          <p class="service-desc">
-            Infrastructure doesn't end at go-live. We provide ongoing managed operations and direct technical support for environments we've built or inherited — proactive monitoring, patch management, incident response, L2/L3 escalation, and capacity planning. An enterprise-grade operations model accessible to organisations of any size, without the cost of a full in-house team.
-          </p>
-          <div class="service-tags">
-            <span class="service-tag">Nutanix AOS</span>
-            <span class="service-tag">VMware</span>
-            <span class="service-tag">OpenShift</span>
-            <span class="service-tag">Veeam / HYCU</span>
-            <span class="service-tag">AWS / Azure</span>
-            <span class="service-tag">ManageEngine</span>
-          </div>
-        </div>
-        <div class="service-right">
-          <div class="managed-items">
-            <div class="managed-item">
-              <div class="managed-item-title">Monitoring &amp; Alerting</div>
-              <div class="managed-item-desc">24/7 health checks, performance baselines, proactive anomaly detection</div>
-            </div>
-            <div class="managed-item">
-              <div class="managed-item-title">Patch &amp; Upgrade Management</div>
-              <div class="managed-item-desc">Scheduled maintenance windows, firmware and OS lifecycle management</div>
-            </div>
-            <div class="managed-item">
-              <div class="managed-item-title">Backup &amp; DR Operations</div>
-              <div class="managed-item-desc">Daily job validation, restore testing, RPO/RTO assurance</div>
-            </div>
-            <div class="managed-item">
-              <div class="managed-item-title">L2 / L3 Technical Support</div>
-              <div class="managed-item-desc">Direct access to senior engineering expertise for complex incidents, escalations, and break-fix resolution</div>
-            </div>
-            <div class="managed-item">
-              <div class="managed-item-title">Incident Response</div>
-              <div class="managed-item-desc">Rapid triage, root cause analysis, and remediation across infrastructure and cloud platforms</div>
-            </div>
-            <div class="managed-item">
-              <div class="managed-item-title">Capacity Planning</div>
-              <div class="managed-item-desc">Growth forecasting, resource optimisation, renewal advisory</div>
-            </div>
-            <div class="managed-item">
-              <div class="managed-item-title">Monthly Reporting</div>
-              <div class="managed-item-desc">Executive-level health reports and roadmap recommendations</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+<section style="background:var(--bg2)">
+  <div class="wrap">
+    <p class="label">Sectors served</p>
+    <div class="sector-tags">
+      <span class="tag">Banking & Finance</span>
+      <span class="tag">Government & Ministries</span>
+      <span class="tag">Healthcare</span>
+      <span class="tag">Retail & FMCG</span>
+      <span class="tag">Energy & Utilities</span>
+      <span class="tag">Logistics & Supply Chain</span>
+      <span class="tag">Education</span>
+      <span class="tag">Hospitality</span>
+      <span class="tag">Insurance</span>
+      <span class="tag">Telecommunications</span>
+      <span class="tag">Manufacturing</span>
+      <span class="tag">Legal & Compliance</span>
     </div>
   </div>
 </section>
 
-<!-- APPROACH -->
-<section class="section-border" id="approach">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="section-tag">Approach</div>
-      <h2 class="section-title">How we <em>work</em></h2>
-    </div>
-    <div class="approach-grid reveal">
-      <div class="approach-item">
-        <div class="approach-step">Step 01</div>
-        <div class="approach-title">Assess</div>
-        <p class="approach-desc">We start by understanding your environment, constraints, and objectives — not by proposing a product. Every engagement begins with an honest assessment of what you have, what you need, and what the realistic path forward looks like.</p>
-      </div>
-      <div class="approach-item">
-        <div class="approach-step">Step 02</div>
-        <div class="approach-title">Architect</div>
-        <p class="approach-desc">We design solutions that are right for your organisation — not the highest-margin option. Architecture blueprints, BoQ, and detailed implementation plans are produced before any procurement decision is made.</p>
-      </div>
-      <div class="approach-item">
-        <div class="approach-step">Step 03</div>
-        <div class="approach-title">Deliver</div>
-        <p class="approach-desc">Implementation, configuration, migration, and handover — handled end to end. We don't disappear after the design phase. We stay through go-live and ensure your team has the knowledge to operate what we've built.</p>
-      </div>
-      <div class="approach-item">
-        <div class="approach-step">Step 04</div>
-        <div class="approach-title">Support</div>
-        <p class="approach-desc">Ongoing managed services and L2/L3 technical support once the environment is live. Monitoring, patch management, incident response, and capacity planning — so your infrastructure keeps performing long after delivery.</p>
-      </div>
+<!-- VENDOR ECOSYSTEM -->
+<section>
+  <div class="wrap">
+    <p class="label">Vendor ecosystem</p>
+    <div class="vendor-grid">
+      <div class="vendor"><span class="vendor-n">Nutanix</span><span class="vendor-c">HCI</span></div>
+      <div class="vendor"><span class="vendor-n">VMware</span><span class="vendor-c">Virtualisation</span></div>
+      <div class="vendor"><span class="vendor-n">Red Hat</span><span class="vendor-c">OpenShift</span></div>
+      <div class="vendor"><span class="vendor-n">Pure Storage</span><span class="vendor-c">Storage</span></div>
+      <div class="vendor"><span class="vendor-n">IBM FlashSystem</span><span class="vendor-c">Storage</span></div>
+      <div class="vendor"><span class="vendor-n">Veeam</span><span class="vendor-c">Backup & DR</span></div>
+      <div class="vendor"><span class="vendor-n">Zerto</span><span class="vendor-c">Replication</span></div>
+      <div class="vendor"><span class="vendor-n">Citrix CVAD</span><span class="vendor-c">VDI</span></div>
+      <div class="vendor"><span class="vendor-n">Microsoft Entra</span><span class="vendor-c">Identity</span></div>
+      <div class="vendor"><span class="vendor-n">Veritas</span><span class="vendor-c">Backup</span></div>
+      <div class="vendor"><span class="vendor-n">Commvault</span><span class="vendor-c">Backup</span></div>
+      <div class="vendor"><span class="vendor-n">Rubrik</span><span class="vendor-c">Data Security</span></div>
+      <div class="vendor"><span class="vendor-n">Cisco HyperFlex</span><span class="vendor-c">HCI</span></div>
+      <div class="vendor"><span class="vendor-n">Sophos</span><span class="vendor-c">Security</span></div>
+      <div class="vendor"><span class="vendor-n">AWS</span><span class="vendor-c">Cloud</span></div>
+      <div class="vendor"><span class="vendor-n">Microsoft 365</span><span class="vendor-c">Productivity</span></div>
+      <div class="vendor"><span class="vendor-n">VMware NSX-T</span><span class="vendor-c">Network Virt.</span></div>
+      <div class="vendor"><span class="vendor-n">VMware vSAN</span><span class="vendor-c">Storage</span></div>
+      <div class="vendor"><span class="vendor-n">IBM Guardium</span><span class="vendor-c">DB Security</span></div>
+      <div class="vendor"><span class="vendor-n">Lenovo ThinkSystem</span><span class="vendor-c">Hardware</span></div>
     </div>
   </div>
 </section>
 
-<!-- DIFFERENTIATORS -->
-<section class="section-border">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="section-tag">Why CloudAIML</div>
-      <h2 class="section-title">No <em>agenda</em>.<br>Just outcomes.</h2>
+<!-- LATEST INSIGHTS -->
+<section style="background:var(--bg2)">
+  <div class="wrap">
+    <p class="label">Latest insights</p>
+    <div class="blog-list">
+      <a href="blog/openshift-on-nutanix.html" class="blog-card">
+        <div>
+          <div class="blog-meta"><span class="blog-date">May 2025</span><span class="blog-tag">OpenShift</span><span class="blog-tag">HCI</span></div>
+          <p class="blog-title">Running Red Hat OpenShift on Nutanix — what actually changes</p>
+          <p class="blog-exc">OpenShift on Nutanix AHV removes a lot of the operational complexity you expect from Kubernetes in production. Here's what the architecture looks like and where the edge cases are.</p>
+        </div>
+        <span class="blog-arrow">→</span>
+      </a>
+      <a href="blog/entra-migration.html" class="blog-card">
+        <div>
+          <div class="blog-meta"><span class="blog-date">Apr 2025</span><span class="blog-tag">Identity</span></div>
+          <p class="blog-title">Migrating to Microsoft Entra ID — the parts nobody warns you about</p>
+          <p class="blog-exc">Entra migrations look clean on paper. In practice there are licensing traps, legacy authentication dependencies, and conditional access conflicts that surface at the worst moments.</p>
+        </div>
+        <span class="blog-arrow">→</span>
+      </a>
+      <a href="blog/hci-dr-design.html" class="blog-card">
+        <div>
+          <div class="blog-meta"><span class="blog-date">Mar 2025</span><span class="blog-tag">DR Design</span></div>
+          <p class="blog-title">Designing a DR strategy that actually meets your RPO</p>
+          <p class="blog-exc">Most DR designs fail not during disasters but during the design phase — when RPO targets are set without understanding what replication technology can realistically deliver.</p>
+        </div>
+        <span class="blog-arrow">→</span>
+      </a>
     </div>
-    <div class="diff-grid reveal">
-      <div class="diff-item">
-        <div class="diff-label">Independence</div>
-        <div class="diff-title">Vendor-neutral advice</div>
-        <p class="diff-desc">We have no reseller agreement driving our recommendations. Nutanix, VMware, OpenShift, AWS, Azure, Google Cloud — we use what fits your requirements, not what earns us margin.</p>
-      </div>
-      <div class="diff-item">
-        <div class="diff-label">Depth</div>
-        <div class="diff-title">Enterprise expertise, accessible pricing</div>
-        <p class="diff-desc">Over a decade of delivering complex infrastructure projects for Kuwait's banks, ministries, and largest enterprises — brought to engagements of any scale.</p>
-      </div>
-      <div class="diff-item">
-        <div class="diff-label">Continuity</div>
-        <div class="diff-title">One consultant, full accountability</div>
-        <p class="diff-desc">You work directly with the architect throughout the engagement. No handoffs to junior staff. No account manager in the middle. One expert who owns the outcome.</p>
-      </div>
-    </div>
+    <div style="margin-top:1.5rem"><a href="blog.html" class="btn btn-ghost">All articles →</a></div>
   </div>
 </section>
 
-<!-- TECHNOLOGY EXPERTISE -->
-<section class="section-border" id="expertise">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="section-tag">Technology Stack</div>
-      <h2 class="section-title">Platforms we <em>know</em></h2>
-    </div>
-    <div class="expertise-grid reveal">
-      <div class="expertise-cat">
-        <div class="expertise-cat-title">HCI &amp; Virtualisation</div>
-        <div class="expertise-products">
-          <span class="product-tag">Nutanix AOS/AHV</span>
-          <span class="product-tag">Nutanix Prism</span>
-          <span class="product-tag">VMware vSphere</span>
-          <span class="product-tag">VMware vCenter</span>
-          <span class="product-tag">VMware vSAN</span>
-          <span class="product-tag">VMware NSX-T</span>
-          <span class="product-tag">VMware vRealize Operations</span>
-          <span class="product-tag">VMware App Volumes</span>
-          <span class="product-tag">VMware UEM</span>
-          <span class="product-tag">VMware AVI Networks</span>
-          <span class="product-tag">Citrix CVAD</span>
-          <span class="product-tag">Citrix XenDesktop</span>
-          <span class="product-tag">Citrix ADC</span>
-          <span class="product-tag">VMware Horizon</span>
-          <span class="product-tag">Microsoft Hyper-V</span>
-          <span class="product-tag">Cisco HyperFlex</span>
-        </div>
-      </div>
-      <div class="expertise-cat">
-        <div class="expertise-cat-title">Containers &amp; DevOps</div>
-        <div class="expertise-products">
-          <span class="product-tag">Red Hat OpenShift</span>
-          <span class="product-tag">RHEL</span>
-          <span class="product-tag">Kubernetes</span>
-          <span class="product-tag">ArgoCD</span>
-          <span class="product-tag">Tekton Pipelines</span>
-          <span class="product-tag">OpenShift Service Mesh</span>
-          <span class="product-tag">Terraform</span>
-          <span class="product-tag">Helm</span>
-          <span class="product-tag">GitLab CI</span>
-        </div>
-      </div>
-      <div class="expertise-cat">
-        <div class="expertise-cat-title">Cloud Platforms</div>
-        <div class="expertise-products">
-          <span class="product-tag">Amazon AWS</span>
-          <span class="product-tag">Microsoft Azure</span>
-          <span class="product-tag">Google Cloud</span>
-          <span class="product-tag">Microsoft Entra ID</span>
-          <span class="product-tag">AWS EKS</span>
-          <span class="product-tag">Azure Arc</span>
-          <span class="product-tag">ROSA</span>
-          <span class="product-tag">ARO</span>
-        </div>
-      </div>
-      <div class="expertise-cat">
-        <div class="expertise-cat-title">Storage</div>
-        <div class="expertise-products">
-          <span class="product-tag">IBM FlashSystem</span>
-          <span class="product-tag">Pure Storage FlashArray</span>
-          <span class="product-tag">IBM Storwize</span>
-          <span class="product-tag">IBM SVC</span>
-          <span class="product-tag">NetApp</span>
-        </div>
-      </div>
-      <div class="expertise-cat">
-        <div class="expertise-cat-title">Backup &amp; DR</div>
-        <div class="expertise-products">
-          <span class="product-tag">Veeam B&amp;R</span>
-          <span class="product-tag">HYCU</span>
-          <span class="product-tag">Rubrik</span>
-          <span class="product-tag">Cohesity</span>
-          <span class="product-tag">Commvault</span>
-          <span class="product-tag">Veritas NetBackup</span>
-          <span class="product-tag">Veritas BackupExec</span>
-          <span class="product-tag">Veritas Enterprise Vault</span>
-          <span class="product-tag">Zerto</span>
-          <span class="product-tag">VMware SRM</span>
-          <span class="product-tag">IBM Tivoli TSM</span>
-        </div>
-      </div>
-      <div class="expertise-cat">
-        <div class="expertise-cat-title">Microsoft &amp; Identity</div>
-        <div class="expertise-products">
-          <span class="product-tag">Active Directory</span>
-          <span class="product-tag">Microsoft Entra ID</span>
-          <span class="product-tag">Exchange / O365</span>
-          <span class="product-tag">SharePoint Online</span>
-          <span class="product-tag">Quest AD Migration</span>
-          <span class="product-tag">PKI / ADFS</span>
-          <span class="product-tag">DNS / DHCP</span>
-          <span class="product-tag">Azure AD Connect</span>
-          <span class="product-tag">Windows Failover Cluster</span>
-        </div>
-      </div>
-      <div class="expertise-cat">
-        <div class="expertise-cat-title">Security &amp; ITSM</div>
-        <div class="expertise-products">
-          <span class="product-tag">Sophos Cloud EDR</span>
-          <span class="product-tag">IBM Guardium</span>
-          <span class="product-tag">NSX-T Micro-seg</span>
-          <span class="product-tag">ManageEngine</span>
-          <span class="product-tag">Nagios</span>
-          <span class="product-tag">OpManager</span>
-        </div>
-      </div>
-      <div class="expertise-cat">
-        <div class="expertise-cat-title">Hardware</div>
-        <div class="expertise-products">
-          <span class="product-tag">HP / HPE</span>
-          <span class="product-tag">Dell PowerEdge</span>
-          <span class="product-tag">Lenovo ThinkSystem</span>
-          <span class="product-tag">Cisco UCS</span>
-          <span class="product-tag">IBM xSeries</span>
-        </div>
-      </div>
-    </div>
+<!-- CTA BAND -->
+<section style="background:var(--bg3);border:none">
+  <div class="wrap" style="text-align:center;padding:4rem 0">
+    <p style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--hint);margin-bottom:1.2rem">Ready to start?</p>
+    <h2 style="font-family:var(--serif);font-size:clamp(30px,4vw,48px);font-weight:300;color:var(--ink);margin-bottom:1.5rem;line-height:1.2">Let's discuss your<br><em>infrastructure challenge.</em></h2>
+    <p style="font-size:13px;color:var(--muted);max-width:440px;margin:0 auto 2rem;line-height:1.9">Whether it's a scoping call, a PoC, or a full architecture engagement — the first conversation is always free.</p>
+    <a href="contact.html" class="btn btn-pri">Get in touch →</a>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="section-border" id="contact">
-  <div class="container">
-    <div class="contact-inner">
-      <div class="contact-left reveal">
-        <h2 class="contact-pitch">Let's talk about<br>your <em>environment</em>.</h2>
-        <p class="contact-desc">Whether you're planning a new infrastructure, evaluating a platform migration, or dealing with a VMware licensing problem — the first conversation is always free.</p>
-        <div class="contact-links">
-          <a href="blog.html" class="contact-link">
-            <span class="contact-link-icon">Blog</span>
-            Technical writing &amp; insights
-            <span class="contact-link-arrow">→</span>
-          </a>
-        </div>
-      </div>
-      <div class="contact-right reveal">
-        <div class="assessment-card">
-          <div class="assessment-tag">Free Infrastructure Assessment</div>
-          <div class="assessment-title">Not sure where to start?</div>
-          <p class="assessment-desc">A 60-minute infrastructure review — current environment, pain points, and clear recommendations. No cost, no obligation.</p>
-          <div class="assessment-items">
-            <div class="assessment-item">Current environment health check</div>
-            <div class="assessment-item">VMware licensing impact analysis</div>
-            <div class="assessment-item">Migration readiness evaluation</div>
-            <div class="assessment-item">Technology roadmap recommendations</div>
-            <div class="assessment-item">Vendor-independent platform comparison</div>
-          </div>
-          <form id="contact-form" action="https://formspree.io/f/xdavgdne" method="POST">
-            <div class="form-group">
-              <input type="text" name="name" placeholder="Your name" required>
-            </div>
-            <div class="form-group">
-              <input type="email" name="email" placeholder="Email address" required>
-            </div>
-            <div class="form-group">
-              <input type="tel" name="phone" placeholder="Phone number">
-            </div>
-            <div class="form-group">
-              <textarea name="message" rows="4" placeholder="Brief description of your environment or challenge"></textarea>
-            </div>
-            <input type="hidden" name="_subject" value="Free Infrastructure Assessment — CloudAIML Kuwait">
-            <button type="submit" class="assessment-cta" id="submit-btn">Request your free assessment →</button>
-            <div id="form-success" style="display:none; text-align:center; padding:14px; font-family:'DM Mono',monospace; font-size:11px; color:var(--accent); letter-spacing:0.08em; margin-top:12px;">
-              ✓ Message received — we'll be in touch shortly.
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+</main>
 
-<!-- FOOTER -->
 <footer>
-  <div class="container">
-    <div class="footer-inner">
-      <div class="footer-logo">CLOUDAIML · KW</div>
-      <div class="footer-note">Kuwait · Independent IT &amp; Cloud Consulting</div>
-      <div class="footer-links">
-        <a href="#services">Services</a>
-        <a href="#expertise">Expertise</a>
-        <a href="blog.html">Blog</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </div>
+  <span class="footer-mark">Cloud<span style="font-style:italic;color:var(--accent)">AIML</span> Consulting</span>
+  <nav class="footer-links">
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Insights</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <span class="footer-copy">© 2025 Cloud AI ML Consulting, Kuwait</span>
 </footer>
 
-<script>
-const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-reveals.forEach(el => observer.observe(el));
-
-const form = document.getElementById('contact-form');
-const btn = document.getElementById('submit-btn');
-const success = document.getElementById('form-success');
-if (form) {
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    btn.disabled = true;
-    btn.textContent = 'Sending…';
-    try {
-      const res = await fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-      });
-      if (res.ok) {
-        form.reset();
-        btn.style.display = 'none';
-        success.style.display = 'block';
-      } else {
-        btn.disabled = false;
-        btn.textContent = 'Request your free assessment →';
-        alert('Something went wrong. Please try again shortly.');
-      }
-    } catch(err) {
-      btn.disabled = false;
-      btn.textContent = 'Request your free assessment →';
-      alert('Something went wrong. Please try again shortly.');
-    }
-  });
-}
-</script>
+<script src="nav.js"></script>
 </body>
 </html>
