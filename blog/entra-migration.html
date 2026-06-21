@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Migrating to Microsoft Entra ID — Cloud AI ML Consulting</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230c0c0b'/><text x='4' y='24' font-size='18' fill='%23c8b89a' font-family='Georgia'>CA</text></svg>">
+</head>
+<body>
+<nav id="nav">
+  <a href="../index.html" class="nav-mark">Cloud<span>AIML</span></a>
+  <ul class="nav-links" id="nl">
+    <li><a href="../index.html">Home</a></li><li><a href="../services.html">Services</a></li>
+    <li><a href="../about.html">About</a></li><li><a href="../blog.html">Insights</a></li>
+    <li><a href="../contact.html" class="nav-cta">Get in Touch</a></li>
+  </ul>
+  <button class="hamburger" id="hb" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<main><div class="wrap">
+  <header class="post-header">
+    <div class="blog-meta"><span class="blog-date">Apr 2025</span><span class="blog-tag">Identity</span><span class="blog-tag">Entra ID</span></div>
+    <h1 class="post-hed">Migrating to Microsoft Entra ID — the parts nobody warns you about</h1>
+    <p style="font-size:13px;color:var(--muted);margin-top:1rem;max-width:560px;line-height:1.8">Entra migrations look clean on paper. In practice there are licensing traps, legacy authentication dependencies, and conditional access conflicts that surface at the worst moments.</p>
+  </header>
+  <article class="post-body">
+    <p>Every Entra migration starts the same way: a stakeholder sees the Microsoft documentation, decides it looks straightforward, and books a two-week project window. By week three we're still untangling legacy authentication protocols and nobody's happy.</p>
+    <p>This isn't a criticism of Entra — it's a genuinely capable identity platform. But the migration path from on-premises Active Directory is rarely as linear as the documentation suggests.</p>
+    <h2>The licensing conversation you need first</h2>
+    <p>Before touching a single identity, get clear on licensing. Conditional Access requires Entra ID P1 at minimum. Identity Protection and Privileged Identity Management (PIM) require P2. In environments with mixed user types, the per-user licensing cost is consistently higher than initial estimates.</p>
+    <p>The trap: Microsoft 365 E3 and E5 bundles include Entra P1 and P2 — but only for users licensed for those SKUs. Service accounts, shared mailboxes, and on-premises-only users fall into a grey zone that needs careful scoping before you commit to an architecture.</p>
+    <h2>Legacy authentication — the thing that breaks everything</h2>
+    <p>Legacy authentication protocols (NTLM, Basic Auth, older SMTP AUTH) don't work with Entra's modern authentication flows. In a typical large environment, there are applications using them that nobody documented.</p>
+    <ul>
+      <li>Old line-of-business applications authenticating against Exchange with Basic Auth</li>
+      <li>Printers, MFDs, and IoT devices using SMTP relay with Basic Auth</li>
+      <li>Third-party monitoring tools using NTLM against internal services</li>
+      <li>Scripts and scheduled tasks using credential-based authentication</li>
+    </ul>
+    <p>The discovery phase for this is non-negotiable and takes longer than expected. Entra's Sign-in Logs with the "Legacy authentication" filter is your starting point — but it only shows what has authenticated recently, not what's dormant and will break on cutover.</p>
+    <blockquote>The best time to audit your legacy authentication dependencies is six months before the migration. The second best time is right now.</blockquote>
+    <h2>Hybrid identity design decisions that stick</h2>
+    <p><strong>Password Hash Synchronisation vs Pass-Through Authentication:</strong> PHS is simpler operationally and enables leaked credential detection. PTA keeps authentication on-premises — required in some regulatory environments. Federated identity (ADFS) is increasingly hard to justify given its operational overhead.</p>
+    <p><strong>UPN suffix alignment:</strong> Your on-premises UPN suffix (user@contoso.local) almost certainly doesn't match your verified Entra domain (user@contoso.com). Fix this before sync starts.</p>
+    <p><strong>Scoped synchronisation:</strong> Start with a pilot OU, not the entire directory. The first sync always surfaces objects with unexpected attributes, duplicates, or errors.</p>
+    <h2>Conditional Access — start permissive, tighten gradually</h2>
+    <p>Use Report-Only mode for the first two to four weeks. The volume of legitimate authentication flows that would have been blocked is consistently higher than anyone expects. A staged approach works best: Report-Only → Block legacy auth only → Require MFA for admins → Require MFA for all users → Require compliant device.</p>
+    <p style="margin-top:2.5rem;padding-top:2rem;border-top:0.5px solid var(--line);color:var(--hint);font-size:11px">Working on an Entra migration? <a href="../contact.html" style="color:var(--accent2)">Get in touch.</a></p>
+  </article>
+  <div style="display:flex;justify-content:space-between;padding:2rem 0 4rem;border-top:0.5px solid var(--line)">
+    <a href="../blog.html" class="btn btn-ghost">← All articles</a>
+    <a href="hci-dr-design.html" class="btn btn-ghost">Next article →</a>
+  </div>
+</div></main>
+<footer>
+  <span class="footer-mark">Cloud<span style="font-style:italic;color:var(--accent)">AIML</span> Consulting</span>
+  <nav class="footer-links"><a href="../services.html">Services</a><a href="../about.html">About</a><a href="../blog.html">Insights</a><a href="../contact.html">Contact</a></nav>
+  <span class="footer-copy">© 2025 Cloud AI ML Consulting, Kuwait</span>
+</footer>
+<script src="../nav.js"></script>
+</body></html>
