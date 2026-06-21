@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Insights — Cloud AI ML Consulting</title>
+<meta name="description" content="Technical writing on enterprise infrastructure, OpenShift, Entra ID migration, disaster recovery, HCI, and cloud architecture from the Gulf region.">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230c0c0b'/><text x='4' y='24' font-size='18' fill='%23c8b89a' font-family='Georgia'>CA</text></svg>">
+</head>
+<body>
+
+<nav id="nav">
+  <a href="index.html" class="nav-mark">Cloud<span>AIML</span></a>
+  <ul class="nav-links" id="nl">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="blog.html">Insights</a></li>
+    <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
+  </ul>
+  <button class="hamburger" id="hb" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<main>
+<div class="wrap">
+
+  <section class="hero" style="padding:8rem 0 3rem;border-bottom:0.5px solid var(--line)">
+    <p class="hero-eyebrow">Field notes & technical writing</p>
+    <h1 class="hero-hed" style="font-size:clamp(36px,5vw,58px)">
+      Infrastructure insights<br>from the <em>field.</em>
+    </h1>
+    <p class="hero-sub">Practical architecture guidance on HCI, containers, identity, and disaster recovery — drawn from 12 years of real-world delivery across Kuwait and the Gulf region. No vendor marketing, no fluff.</p>
+  </section>
+
+  <section style="padding:1.5rem 0;border-bottom:0.5px solid var(--line)">
+    <div class="filter-bar" style="padding:0;border:none">
+      <button class="fbtn on" data-filter="all">All</button>
+      <button class="fbtn" data-filter="openshift">OpenShift</button>
+      <button class="fbtn" data-filter="identity">Identity</button>
+      <button class="fbtn" data-filter="dr">DR & Backup</button>
+      <button class="fbtn" data-filter="hci">HCI</button>
+      <button class="fbtn" data-filter="storage">Storage</button>
+      <button class="fbtn" data-filter="vdi">VDI</button>
+    </div>
+  </section>
+
+  <section style="padding:3rem 0">
+    <div class="blog-list" id="blogGrid">
+
+      <a href="blog/openshift-on-nutanix.html" class="blog-card" data-tags="openshift hci">
+        <div>
+          <div class="blog-meta"><span class="blog-date">May 2025</span><span class="blog-tag">OpenShift</span><span class="blog-tag">HCI</span></div>
+          <p class="blog-title">Running Red Hat OpenShift on Nutanix — what actually changes</p>
+          <p class="blog-exc">OpenShift on Nutanix AHV removes a lot of the operational complexity you expect from Kubernetes in production. Here's what the architecture looks like and where the edge cases hide.</p>
+        </div>
+        <span class="blog-arrow">→</span>
+      </a>
+
+      <a href="blog/entra-migration.html" class="blog-card" data-tags="identity">
+        <div>
+          <div class="blog-meta"><span class="blog-date">Apr 2025</span><span class="blog-tag">Identity</span></div>
+          <p class="blog-title">Migrating to Microsoft Entra ID — the parts nobody warns you about</p>
+          <p class="blog-exc">Entra migrations look clean on paper. In practice there are licensing traps, legacy authentication dependencies, and conditional access conflicts that surface at the worst moments.</p>
+        </div>
+        <span class="blog-arrow">→</span>
+      </a>
+
+      <a href="blog/hci-dr-design.html" class="blog-card" data-tags="dr hci">
+        <div>
+          <div class="blog-meta"><span class="blog-date">Mar 2025</span><span class="blog-tag">DR Design</span></div>
+          <p class="blog-title">Designing a DR strategy that actually meets your RPO</p>
+          <p class="blog-exc">Most DR designs fail not during disasters but during the design phase — when RPO targets are set without understanding what replication technology can realistically deliver.</p>
+        </div>
+        <span class="blog-arrow">→</span>
+      </a>
+
+      <a href="blog/vsan-vs-nutanix.html" class="blog-card" data-tags="hci storage">
+        <div>
+          <div class="blog-meta"><span class="blog-date">Feb 2025</span><span class="blog-tag">HCI</span><span class="blog-tag">Storage</span></div>
+          <p class="blog-title">vSAN vs Nutanix — choosing the right HCI for your environment</p>
+          <p class="blog-exc">Both are mature, proven platforms. The decision comes down to your existing stack, team skills, and where you expect to be in three years — not marketing benchmarks.</p>
+        </div>
+        <span class="blog-arrow">→</span>
+      </a>
+
+      <a href="blog/veeam-immutable.html" class="blog-card" data-tags="dr">
+        <div>
+          <div class="blog-meta"><span class="blog-date">Jan 2025</span><span class="blog-tag">DR & Backup</span></div>
+          <p class="blog-title">Why immutable backup storage should be non-negotiable in 2025</p>
+          <p class="blog-exc">Ransomware doesn't just encrypt your data — it targets your backups first. Immutable storage changes the equation entirely, and the architecture is simpler than most teams think.</p>
+        </div>
+        <span class="blog-arrow">→</span>
+      </a>
+
+      <a href="blog/horizon-vdi-scale.html" class="blog-card" data-tags="vdi">
+        <div>
+          <div class="blog-meta"><span class="blog-date">Dec 2024</span><span class="blog-tag">VDI</span></div>
+          <p class="blog-title">Scaling VMware Horizon without destroying your storage budget</p>
+          <p class="blog-exc">Large VDI deployments punish under-engineered storage designs quickly. Here's how to size correctly from the start and where the common mistakes happen at 500+ seats.</p>
+        </div>
+        <span class="blog-arrow">→</span>
+      </a>
+
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <span class="footer-mark">Cloud<span style="font-style:italic;color:var(--accent)">AIML</span> Consulting</span>
+  <nav class="footer-links">
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Insights</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <span class="footer-copy">© 2025 Cloud AI ML Consulting, Kuwait</span>
+</footer>
+
+<script src="nav.js"></script>
+<script>
+  document.querySelectorAll('.fbtn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('on'));
+      btn.classList.add('on');
+      const f = btn.dataset.filter;
+      document.querySelectorAll('.blog-card').forEach(card => {
+        card.style.display = (f==='all' || (card.dataset.tags||'').includes(f)) ? '' : 'none';
+      });
+    });
+  });
+</script>
+</body>
+</html>
