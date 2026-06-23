@@ -148,6 +148,13 @@
         headers:{'Accept':'application/json'}
       });
       if(res.ok){
+        // GA4 conversion tracking
+        if(typeof gtag !== 'undefined') {
+          gtag('event', 'generate_lead', {
+            'event_category': 'contact',
+            'event_label': 'contact_form_submit'
+          });
+        }
         form.reset();
         success.style.display = 'block';
         btn.style.display = 'none';
