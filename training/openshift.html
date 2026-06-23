@@ -3,23 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Red Hat OpenShift Training in Kuwait — Containers, Kubernetes, DevOps</title>
-<meta name="description" content="Red Hat OpenShift training in Kuwait. Kubernetes fundamentals, OpenShift administration, container architecture, CI/CD pipelines, and the transition from VMware admin to OpenShift engineer. Live online and in-person.">
-<meta name="keywords" content="Red Hat OpenShift · Kubernetes · Containers · Docker · OpenShift on Nutanix · OpenShift on VMware · CI/CD · DevOps · OCP Administration · Podman, Kuwait, Gulf, training, workshop, online training">
+<title>Red Hat OpenShift Training Kuwait — Kubernetes, Containers, DevOps | Cloud AI ML Consulting</title>
+<meta name="description" content="Red Hat OpenShift training in Kuwait. Kubernetes fundamentals, OpenShift administration, containers, OpenShift on Nutanix, OpenShift on VMware, CI/CD, and the VMware admin to OpenShift engineer transition. Delivered by an engineer with production OpenShift deployments in Kuwait banking.">
+<meta name="keywords" content="OpenShift training Kuwait, Kubernetes training Kuwait, Red Hat training Kuwait, containers training, DevOps training Kuwait, OpenShift on Nutanix, OpenShift on VMware, RHCA training, OCP training">
 <link rel="canonical" href="https://cloudaimlkw.com/training/openshift.html">
 <link rel="stylesheet" href="../style.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230c0c0b'/><text x='4' y='24' font-size='18' fill='%23c8b89a' font-family='Georgia'>CA</text></svg>">
-  <!-- Google Analytics -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Red Hat OpenShift & Kubernetes Administration Training",
+  "description": "Red Hat OpenShift training in Kuwait. Kubernetes fundamentals, OpenShift administration, containers, OpenShift on Nutanix, OpenShift on VMware, CI/CD, and the VMware admin to OpenShift engineer transition. Delivered by an engineer with production OpenShift deployments in Kuwait banking.",
+  "url": "https://cloudaimlkw.com/training/openshift.html",
+  "provider": {
+    "@type": "Organization",
+    "name": "Cloud AI ML Consulting",
+    "url": "https://cloudaimlkw.com"
+  },
+  "educationalLevel": "Intermediate — Advanced",
+  "timeRequired": "P3D",
+  "availableLanguage": "English",
+  "courseMode": ["online", "onsite", "blended"],
+  "inLanguage": "en",
+  "locationCreated": {
+    "@type": "Place",
+    "name": "Kuwait"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{"@type":"Question","name":"Do I need Kubernetes experience before attending?","acceptedAnswer":{"@type":"Answer","text":"No — the first module starts from container fundamentals and builds up systematically. The training is specifically designed for infrastructure engineers coming from VMware or traditional IT backgrounds, not developers."}},
+{"@type":"Question","name":"Does this training cover OpenShift on Nutanix specifically?","acceptedAnswer":{"@type":"Answer","text":"Yes — Module 2 includes a dedicated walkthrough of OpenShift IPI deployment on Nutanix AHV, including Nutanix CSI driver configuration and Prism Central integration. This is based on real production deployments in Kuwait."}},
+{"@type":"Question","name":"How does this differ from Red Hat's official training?","acceptedAnswer":{"@type":"Answer","text":"Red Hat's official training is comprehensive but general. This training is specifically tailored for infrastructure engineers in Gulf region enterprise environments — using examples from actual Kuwaiti banking and government deployments, and addressing the operational context your team will actually face."}},
+{"@type":"Question","name":"Is this training useful for engineers who are not moving into DevOps?","acceptedAnswer":{"@type":"Answer","text":"Yes — many infrastructure engineers need to operate OpenShift clusters deployed by development teams, or manage the underlying infrastructure for OpenShift without writing application code. This training covers exactly that operational role."}},
+{"@type":"Question","name":"Can this training help prepare for Red Hat OpenShift certification?","acceptedAnswer":{"@type":"Answer","text":"The content aligns closely with the EX280 (Red Hat Certified Specialist in OpenShift Administration) exam objectives. It is not an official Red Hat exam preparation course, but candidates typically find it significantly reduces their remaining study time."}}]
+}
+</script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-20WG4S5HZG"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-20WG4S5HZG');
-  </script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-20WG4S5HZG');</script>
 </head>
 <body>
-
 <nav id="nav">
   <a href="../index.html" class="nav-mark">Cloud<span>AIML</span></a>
   <ul class="nav-links" id="nl">
@@ -32,96 +59,204 @@
   </ul>
   <button class="hamburger" id="hb" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
-
 <main>
 <div class="wrap">
 
+  <!-- HERO -->
   <section class="svc-hero">
-    <p style="font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent2)">OpenShift Training · Kuwait</p>
-    <h1 class="svc-hero-hed">Red Hat OpenShift Training<br><em style="color:var(--accent)">Kuwait & Online</em></h1>
-    <p style="font-size:13px;color:var(--muted);max-width:580px;line-height:1.9">Practical OpenShift and Kubernetes training for infrastructure engineers — built on real production deployments in Kuwaiti banking and enterprise. Whether you're a VMware admin making the transition to containers, or an IT team that has just deployed OpenShift and needs to operate it confidently, this training closes the gap between theory and production reality.</p>
-    <div style="margin-top:1.5rem;display:flex;gap:1rem;flex-wrap:wrap">
-      <a href="../contact.html" class="btn btn-pri">Enquire about this training →</a>
-      <a href="../training.html" class="btn btn-ghost">All training programmes →</a>
+    <p style="font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent2)">Red Hat OpenShift Training · Kuwait & Online</p>
+    <h1 class="svc-hero-hed" style="font-size:clamp(32px,4.5vw,52px)">Red Hat OpenShift<br><em>& Kubernetes Training</em></h1>
+    <p style="font-size:13px;color:var(--muted);max-width:600px;line-height:1.9;margin-bottom:1.5rem">Practical OpenShift and Kubernetes training for infrastructure engineers — built on real production deployments in Kuwaiti banking environments (production, pre-production, and DR clusters on Nutanix AHV and VMware ESXi). Whether you are a VMware admin making the transition to containers, or an IT team that has just deployed OpenShift and needs to operate it with confidence, this training bridges the gap between vendor documentation and production reality.</p>
+    <!-- QUICK FACTS -->
+    <div style="display:flex;gap:2rem;flex-wrap:wrap;padding:1.5rem 0;border-top:0.5px solid var(--line);border-bottom:0.5px solid var(--line);margin-bottom:1.5rem">
+      <div><p style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--hint);margin-bottom:4px">Duration</p><p style="font-size:13px;color:var(--ink)">2–3 days (modular)</p></div>
+      <div><p style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--hint);margin-bottom:4px">Level</p><p style="font-size:13px;color:var(--ink)">Intermediate — Advanced</p></div>
+      <div><p style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--hint);margin-bottom:4px">Delivery</p><p style="font-size:13px;color:var(--ink)">Online · In-Person · On-Site</p></div>
+      <div><p style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--hint);margin-bottom:4px">Certification alignment</p><p style="font-size:13px;color:var(--ink)">EX180 · EX280 · RHCA</p></div>
+    </div>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap">
+      <a href="../contact.html" class="btn btn-pri">Enquire about this course →</a>
+      <a href="../training.html" class="btn btn-ghost">All courses →</a>
     </div>
   </section>
 
+  <!-- WHAT YOU WILL LEARN -->
   <section>
-    <p class="label">Topics covered</p>
-    <div style="display:flex;flex-direction:column;gap:1px;background:var(--line);border:0.5px solid var(--line)">
-      
-      <div style="background:var(--bg);padding:1.5rem 1.8rem;display:grid;grid-template-columns:200px 1fr;gap:1.5rem;align-items:start">
-        <p style="font-family:var(--serif);font-size:16px;font-weight:400;color:var(--ink);line-height:1.3">Container Fundamentals</p>
-        <p style="font-size:11px;color:var(--muted);line-height:1.8">What containers are, how they differ from VMs, and why the industry is moving toward them. Docker, Podman, and container images explained for infrastructure engineers.</p>
+    <p class="label">What you will learn</p>
+    <div style="border:0.5px solid var(--line)"><div style="display:flex;gap:10px;align-items:flex-start;padding:0.7rem 0;border-bottom:0.5px solid var(--line)"><span style="color:var(--accent2);font-size:14px;margin-top:1px">✓</span><p style="font-size:12px;color:var(--muted);line-height:1.7">Understand container architecture and how it differs from virtual machines</p></div><div style="display:flex;gap:10px;align-items:flex-start;padding:0.7rem 0;border-bottom:0.5px solid var(--line)"><span style="color:var(--accent2);font-size:14px;margin-top:1px">✓</span><p style="font-size:12px;color:var(--muted);line-height:1.7">Navigate and operate the OpenShift web console and oc CLI confidently</p></div><div style="display:flex;gap:10px;align-items:flex-start;padding:0.7rem 0;border-bottom:0.5px solid var(--line)"><span style="color:var(--accent2);font-size:14px;margin-top:1px">✓</span><p style="font-size:12px;color:var(--muted);line-height:1.7">Deploy and manage applications on OpenShift — pods, deployments, services, routes</p></div><div style="display:flex;gap:10px;align-items:flex-start;padding:0.7rem 0;border-bottom:0.5px solid var(--line)"><span style="color:var(--accent2);font-size:14px;margin-top:1px">✓</span><p style="font-size:12px;color:var(--muted);line-height:1.7">Configure storage in OpenShift — persistent volumes, storage classes, and CSI drivers</p></div><div style="display:flex;gap:10px;align-items:flex-start;padding:0.7rem 0;border-bottom:0.5px solid var(--line)"><span style="color:var(--accent2);font-size:14px;margin-top:1px">✓</span><p style="font-size:12px;color:var(--muted);line-height:1.7">Deploy OpenShift on Nutanix AHV using IPI (Installer-Provisioned Infrastructure)</p></div><div style="display:flex;gap:10px;align-items:flex-start;padding:0.7rem 0;border-bottom:0.5px solid var(--line)"><span style="color:var(--accent2);font-size:14px;margin-top:1px">✓</span><p style="font-size:12px;color:var(--muted);line-height:1.7">Deploy OpenShift on VMware vSphere — IPI and UPI deployment patterns</p></div><div style="display:flex;gap:10px;align-items:flex-start;padding:0.7rem 0;border-bottom:0.5px solid var(--line)"><span style="color:var(--accent2);font-size:14px;margin-top:1px">✓</span><p style="font-size:12px;color:var(--muted);line-height:1.7">Design OpenShift network policy and ingress for enterprise environments</p></div><div style="display:flex;gap:10px;align-items:flex-start;padding:0.7rem 0;border-bottom:0.5px solid var(--line)"><span style="color:var(--accent2);font-size:14px;margin-top:1px">✓</span><p style="font-size:12px;color:var(--muted);line-height:1.7">Plan and execute OpenShift cluster upgrades with minimal disruption</p></div></div>
+  </section>
+
+  <!-- CURRICULUM -->
+  <section style="background:var(--bg2)">
+    <p class="label">Course curriculum</p>
+    <p style="font-size:12px;color:var(--muted);margin-bottom:1.5rem">7 modules · 2–3 days (modular)</p>
+    <div style="border:0.5px solid var(--line);background:var(--line)">
+      <div style="background:var(--bg2);padding:1.5rem 2rem;border-bottom:0.5px solid var(--line)">
+        <div style="display:grid;grid-template-columns:220px 1fr;gap:2rem;align-items:start">
+          <div>
+            <p style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--hint);margin-bottom:4px">Module 01</p>
+            <p style="font-family:var(--serif);font-size:16px;font-weight:400;color:var(--ink);line-height:1.3">Container & Kubernetes Fundamentals</p>
+          </div>
+          <ul style="list-style:none;padding:0"><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Containers vs virtual machines — architecture differences explained for infra engineers</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Docker and Podman — images, containers, and registries</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Kubernetes architecture — control plane, worker nodes, etcd</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Pods, ReplicaSets, Deployments, and Services — core resource types</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">ConfigMaps, Secrets, and Namespaces</li></ul>
+        </div>
       </div>
-      <div style="background:var(--bg2);padding:1.5rem 1.8rem;display:grid;grid-template-columns:200px 1fr;gap:1.5rem;align-items:start">
-        <p style="font-family:var(--serif);font-size:16px;font-weight:400;color:var(--ink);line-height:1.3">Kubernetes Architecture</p>
-        <p style="font-size:11px;color:var(--muted);line-height:1.8">Kubernetes core concepts — pods, deployments, services, namespaces, and ingress — mapped to VMware and infrastructure concepts you already know.</p>
+      <div style="background:var(--bg);padding:1.5rem 2rem;border-bottom:0.5px solid var(--line)">
+        <div style="display:grid;grid-template-columns:220px 1fr;gap:2rem;align-items:start">
+          <div>
+            <p style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--hint);margin-bottom:4px">Module 02</p>
+            <p style="font-family:var(--serif);font-size:16px;font-weight:400;color:var(--ink);line-height:1.3">OpenShift Architecture & Installation</p>
+          </div>
+          <ul style="list-style:none;padding:0"><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">OpenShift vs upstream Kubernetes — what OpenShift adds</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">IPI vs UPI installation — when to use each</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">OpenShift on Nutanix AHV — IPI deployment walkthrough</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">OpenShift on VMware vSphere — IPI and vSphere CSI integration</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Bootstrap process and cluster operator overview</li></ul>
+        </div>
       </div>
-      <div style="background:var(--bg);padding:1.5rem 1.8rem;display:grid;grid-template-columns:200px 1fr;gap:1.5rem;align-items:start">
-        <p style="font-family:var(--serif);font-size:16px;font-weight:400;color:var(--ink);line-height:1.3">OpenShift Administration</p>
-        <p style="font-size:11px;color:var(--muted);line-height:1.8">OpenShift-specific operations — projects, routes, operators, image streams, and the OpenShift web console. Day-2 operations and upgrade procedures.</p>
+      <div style="background:var(--bg2);padding:1.5rem 2rem;border-bottom:0.5px solid var(--line)">
+        <div style="display:grid;grid-template-columns:220px 1fr;gap:2rem;align-items:start">
+          <div>
+            <p style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--hint);margin-bottom:4px">Module 03</p>
+            <p style="font-family:var(--serif);font-size:16px;font-weight:400;color:var(--ink);line-height:1.3">OpenShift Administration</p>
+          </div>
+          <ul style="list-style:none;padding:0"><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Web console navigation — projects, workloads, networking, storage</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">oc CLI — authentication, resource management, debugging</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">OpenShift projects and RBAC — users, groups, and role bindings</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Image streams, build configs, and DeploymentConfigs</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">OpenShift operators — the Operator Hub and operator lifecycle</li></ul>
+        </div>
       </div>
-      <div style="background:var(--bg2);padding:1.5rem 1.8rem;display:grid;grid-template-columns:200px 1fr;gap:1.5rem;align-items:start">
-        <p style="font-family:var(--serif);font-size:16px;font-weight:400;color:var(--ink);line-height:1.3">OpenShift on Nutanix</p>
-        <p style="font-size:11px;color:var(--muted);line-height:1.8">Deploying OpenShift on Nutanix AHV using IPI. Nutanix CSI driver, storage classes, Prism integration, and operational patterns for production clusters.</p>
+      <div style="background:var(--bg);padding:1.5rem 2rem;border-bottom:0.5px solid var(--line)">
+        <div style="display:grid;grid-template-columns:220px 1fr;gap:2rem;align-items:start">
+          <div>
+            <p style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--hint);margin-bottom:4px">Module 04</p>
+            <p style="font-family:var(--serif);font-size:16px;font-weight:400;color:var(--ink);line-height:1.3">Storage in OpenShift</p>
+          </div>
+          <ul style="list-style:none;padding:0"><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Persistent Volumes (PV) and Persistent Volume Claims (PVC)</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Storage Classes — dynamic provisioning</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Nutanix CSI driver — volumes and files storage classes</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">vSphere CSI driver configuration</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">CSI snapshots for application-consistent data protection</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Storage class best practices for production environments</li></ul>
+        </div>
       </div>
-      <div style="background:var(--bg);padding:1.5rem 1.8rem;display:grid;grid-template-columns:200px 1fr;gap:1.5rem;align-items:start">
-        <p style="font-family:var(--serif);font-size:16px;font-weight:400;color:var(--ink);line-height:1.3">OpenShift on VMware</p>
-        <p style="font-size:11px;color:var(--muted);line-height:1.8">OpenShift on VMware vSphere — IPI deployment, vSphere CSI, NSX-T integration, and managing OpenShift alongside existing VMware infrastructure.</p>
+      <div style="background:var(--bg2);padding:1.5rem 2rem;border-bottom:0.5px solid var(--line)">
+        <div style="display:grid;grid-template-columns:220px 1fr;gap:2rem;align-items:start">
+          <div>
+            <p style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--hint);margin-bottom:4px">Module 05</p>
+            <p style="font-family:var(--serif);font-size:16px;font-weight:400;color:var(--ink);line-height:1.3">Networking & Ingress</p>
+          </div>
+          <ul style="list-style:none;padding:0"><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">OpenShift SDN — OVN-Kubernetes architecture</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Services — ClusterIP, NodePort, LoadBalancer</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Routes and Ingress — exposing applications externally</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Network Policy — pod-to-pod traffic control</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">MetalLB and external load balancer integration</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Troubleshooting OpenShift networking</li></ul>
+        </div>
       </div>
-      <div style="background:var(--bg2);padding:1.5rem 1.8rem;display:grid;grid-template-columns:200px 1fr;gap:1.5rem;align-items:start">
-        <p style="font-family:var(--serif);font-size:16px;font-weight:400;color:var(--ink);line-height:1.3">From VMware Admin to OpenShift Engineer</p>
-        <p style="font-size:11px;color:var(--muted);line-height:1.8">The career transition programme — using your existing infrastructure knowledge to accelerate OpenShift proficiency. Networking, storage, and operations mapped across both platforms.</p>
+      <div style="background:var(--bg);padding:1.5rem 2rem;border-bottom:0.5px solid var(--line)">
+        <div style="display:grid;grid-template-columns:220px 1fr;gap:2rem;align-items:start">
+          <div>
+            <p style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--hint);margin-bottom:4px">Module 06</p>
+            <p style="font-family:var(--serif);font-size:16px;font-weight:400;color:var(--ink);line-height:1.3">Day-2 Operations & Upgrades</p>
+          </div>
+          <ul style="list-style:none;padding:0"><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Cluster monitoring — Prometheus, Alertmanager, Grafana</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Logging — OpenShift logging stack (EFK)</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Cluster upgrades — update channels, update graph, and upgrade execution</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Machine Config Operator — node configuration management</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Etcd backup and restore</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Troubleshooting common OpenShift issues</li></ul>
+        </div>
+      </div>
+      <div style="background:var(--bg2);padding:1.5rem 2rem;border-bottom:0.5px solid var(--line)">
+        <div style="display:grid;grid-template-columns:220px 1fr;gap:2rem;align-items:start">
+          <div>
+            <p style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--hint);margin-bottom:4px">Module 07</p>
+            <p style="font-family:var(--serif);font-size:16px;font-weight:400;color:var(--ink);line-height:1.3">VMware Admin to OpenShift Engineer</p>
+          </div>
+          <ul style="list-style:none;padding:0"><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Mapping VMware concepts to OpenShift — a side-by-side comparison</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Networking: port groups → network policies</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Storage: datastores → storage classes and PVCs</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">HA: vSphere HA → pod disruption budgets and ReplicaSets</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Career path from infrastructure engineer to platform engineer</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">CI/CD basics for infrastructure professionals</li></ul>
+        </div>
+      </div></div>
+  </section>
+
+  <!-- PREREQUISITES + WHO IT'S FOR -->
+  <section>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem">
+      <div>
+        <p class="label">Prerequisites</p>
+        <ul style="list-style:none;padding:0"><li style="font-size:12px;color:var(--muted);line-height:1.8;margin-bottom:4px">Basic Linux command line knowledge (file operations, processes, networking)</li><li style="font-size:12px;color:var(--muted);line-height:1.8;margin-bottom:4px">Familiarity with virtualisation concepts (VMware, Nutanix, or Hyper-V)</li><li style="font-size:12px;color:var(--muted);line-height:1.8;margin-bottom:4px">No prior Kubernetes or container experience required</li></ul>
+      </div>
+      <div>
+        <p class="label">Who this is for</p>
+        <p style="font-size:12px;color:var(--muted);line-height:1.9">VMware and infrastructure administrators transitioning into OpenShift and DevOps roles, IT teams operating OpenShift in production, engineers responsible for container platform administration, professionals preparing for Red Hat OpenShift certification.</p>
       </div>
     </div>
   </section>
 
+  <!-- DELIVERY -->
   <section style="background:var(--bg2)">
     <p class="label">Delivery formats</p>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--line);border:0.5px solid var(--line)">
-      <div style="background:var(--bg2);padding:1.5rem">
-        <p style="font-family:var(--serif);font-size:17px;color:var(--ink);margin-bottom:0.5rem">Live Online</p>
-        <p style="font-size:11px;color:var(--muted);line-height:1.8">Instructor-led sessions via Zoom or Microsoft Teams. Interactive, with Q&A and screen-sharing of live environments. Recordings available for review.</p>
+      <div style="background:var(--bg2);padding:1.8rem">
+        <p style="font-family:var(--serif);font-size:18px;color:var(--ink);margin-bottom:0.6rem">Live Online</p>
+        <p style="font-size:11px;color:var(--muted);line-height:1.8">Instructor-led via Zoom or Microsoft Teams. Interactive sessions with live Q&A, screen sharing, and lab walkthroughs. Recordings provided.</p>
       </div>
-      <div style="background:var(--bg2);padding:1.5rem">
-        <p style="font-family:var(--serif);font-size:17px;color:var(--ink);margin-bottom:0.5rem">In-Person Kuwait</p>
-        <p style="font-size:11px;color:var(--muted);line-height:1.8">Face-to-face workshops in Kuwait. Small group sizes for maximum interaction and hands-on time. Custom scheduling available.</p>
+      <div style="background:var(--bg2);padding:1.8rem">
+        <p style="font-family:var(--serif);font-size:18px;color:var(--ink);margin-bottom:0.6rem">In-Person Kuwait</p>
+        <p style="font-size:11px;color:var(--muted);line-height:1.8">Face-to-face workshops in Kuwait City. Small groups for maximum interaction. Hands-on labs on real or simulated environments.</p>
       </div>
-      <div style="background:var(--bg2);padding:1.5rem">
-        <p style="font-family:var(--serif);font-size:17px;color:var(--ink);margin-bottom:0.5rem">Corporate On-Site</p>
-        <p style="font-size:11px;color:var(--muted);line-height:1.8">Delivered at your offices — using your environment as the reference point. Ideal for teams of 5 or more. Custom curriculum available.</p>
+      <div style="background:var(--bg2);padding:1.8rem">
+        <p style="font-family:var(--serif);font-size:18px;color:var(--ink);margin-bottom:0.6rem">Corporate On-Site</p>
+        <p style="font-size:11px;color:var(--muted);line-height:1.8">Delivered at your offices using your own environment as the reference. Custom scheduling for groups of 4 or more. Available across Kuwait and Gulf region.</p>
       </div>
     </div>
   </section>
 
+  <!-- WHY THIS TRAINER -->
   <section>
-    <p class="label">Who this is for</p>
-    <div style="border:0.5px solid var(--line);padding:2rem;background:var(--bg)">
-      <p style="font-size:13px;color:var(--muted);line-height:1.9;max-width:680px">VMware and infrastructure administrators transitioning to OpenShift, IT teams operating OpenShift in production, engineers who want to move into DevOps and platform engineering roles.</p>
+    <p class="label">Why train with us</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:0.5px solid var(--line)">
+      <div style="background:var(--bg);padding:1.8rem">
+        <p style="font-family:var(--serif);font-size:17px;color:var(--ink);margin-bottom:0.5rem">Delivered by a practitioner</p>
+        <p style="font-size:11px;color:var(--muted);line-height:1.8">Every topic is drawn from 12 years of real enterprise deployments — banking, government, and enterprise in Kuwait. You get the real-world edge cases, not just vendor slides.</p>
+      </div>
+      <div style="background:var(--bg);padding:1.8rem">
+        <p style="font-family:var(--serif);font-size:17px;color:var(--ink);margin-bottom:0.5rem">Kuwait & Gulf context</p>
+        <p style="font-size:11px;color:var(--muted);line-height:1.8">Training designed for professionals working in the Gulf region — accounting for the regulatory environment, procurement landscape, and operational realities of Kuwait enterprise and government IT.</p>
+      </div>
+      <div style="background:var(--bg);padding:1.8rem">
+        <p style="font-family:var(--serif);font-size:17px;color:var(--ink);margin-bottom:0.5rem">Vendor-neutral perspective</p>
+        <p style="font-size:11px;color:var(--muted);line-height:1.8">No vendor bias. You will learn how technology actually works — including where it falls short — so you can make informed decisions, not just operate one vendor's implementation.</p>
+      </div>
+      <div style="background:var(--bg);padding:1.8rem">
+        <p style="font-family:var(--serif);font-size:17px;color:var(--ink);margin-bottom:0.5rem">Post-training support</p>
+        <p style="font-size:11px;color:var(--muted);line-height:1.8">30-day follow-up Q&A window after every course. If you hit issues applying what you learned, you have direct access to the trainer — not a support ticket queue.</p>
+      </div>
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section style="background:var(--bg2)">
+    <p class="label">Frequently asked questions</p>
+    <div style="max-width:720px">
+      <div style="border-bottom:0.5px solid var(--line);padding:1.2rem 0">
+        <p style="font-family:var(--serif);font-size:17px;font-weight:400;color:var(--ink);margin-bottom:0.5rem">Do I need Kubernetes experience before attending?</p>
+        <p style="font-size:12px;color:var(--muted);line-height:1.8">No — the first module starts from container fundamentals and builds up systematically. The training is specifically designed for infrastructure engineers coming from VMware or traditional IT backgrounds, not developers.</p>
+      </div>
+      <div style="border-bottom:0.5px solid var(--line);padding:1.2rem 0">
+        <p style="font-family:var(--serif);font-size:17px;font-weight:400;color:var(--ink);margin-bottom:0.5rem">Does this training cover OpenShift on Nutanix specifically?</p>
+        <p style="font-size:12px;color:var(--muted);line-height:1.8">Yes — Module 2 includes a dedicated walkthrough of OpenShift IPI deployment on Nutanix AHV, including Nutanix CSI driver configuration and Prism Central integration. This is based on real production deployments in Kuwait.</p>
+      </div>
+      <div style="border-bottom:0.5px solid var(--line);padding:1.2rem 0">
+        <p style="font-family:var(--serif);font-size:17px;font-weight:400;color:var(--ink);margin-bottom:0.5rem">How does this differ from Red Hat's official training?</p>
+        <p style="font-size:12px;color:var(--muted);line-height:1.8">Red Hat's official training is comprehensive but general. This training is specifically tailored for infrastructure engineers in Gulf region enterprise environments — using examples from actual Kuwaiti banking and government deployments, and addressing the operational context your team will actually face.</p>
+      </div>
+      <div style="border-bottom:0.5px solid var(--line);padding:1.2rem 0">
+        <p style="font-family:var(--serif);font-size:17px;font-weight:400;color:var(--ink);margin-bottom:0.5rem">Is this training useful for engineers who are not moving into DevOps?</p>
+        <p style="font-size:12px;color:var(--muted);line-height:1.8">Yes — many infrastructure engineers need to operate OpenShift clusters deployed by development teams, or manage the underlying infrastructure for OpenShift without writing application code. This training covers exactly that operational role.</p>
+      </div>
+      <div style="border-bottom:0.5px solid var(--line);padding:1.2rem 0">
+        <p style="font-family:var(--serif);font-size:17px;font-weight:400;color:var(--ink);margin-bottom:0.5rem">Can this training help prepare for Red Hat OpenShift certification?</p>
+        <p style="font-size:12px;color:var(--muted);line-height:1.8">The content aligns closely with the EX280 (Red Hat Certified Specialist in OpenShift Administration) exam objectives. It is not an official Red Hat exam preparation course, but candidates typically find it significantly reduces their remaining study time.</p>
+      </div></div>
+  </section>
+
+  <!-- RELATED COURSES -->
   <section>
-    <p class="label">Certification alignment</p>
-    <div style="border:0.5px solid var(--line);padding:2rem;background:var(--bg)">
-      <p style="font-size:12px;color:var(--muted);line-height:1.9">Red Hat Certified System Administrator (RHCSA) · Red Hat Certified Specialist in OpenShift Administration — recommended post-training path</p>
-    </div>
+    <p class="label">Related courses</p>
+    <div style="border:0.5px solid var(--line);background:var(--line)"><a href="nutanix.html" style="display:block;padding:1rem 1.2rem;background:var(--bg);border-bottom:0.5px solid var(--line);font-size:12px;color:var(--muted);transition:background 0.2s;text-decoration:none" onmouseover="this.style.background='var(--bg2)'" onmouseout="this.style.background='var(--bg)'">Nutanix Training — Deploy OpenShift on Nutanix AHV →</a><a href="vmware.html" style="display:block;padding:1rem 1.2rem;background:var(--bg);border-bottom:0.5px solid var(--line);font-size:12px;color:var(--muted);transition:background 0.2s;text-decoration:none" onmouseover="this.style.background='var(--bg2)'" onmouseout="this.style.background='var(--bg)'">VMware Training — OpenShift on vSphere →</a><a href="linux.html" style="display:block;padding:1rem 1.2rem;background:var(--bg);border-bottom:0.5px solid var(--line);font-size:12px;color:var(--muted);transition:background 0.2s;text-decoration:none" onmouseover="this.style.background='var(--bg2)'" onmouseout="this.style.background='var(--bg)'">Linux Training — RHEL for OpenShift Infrastructure →</a></div>
   </section>
 
+  <!-- CTA -->
   <section style="border:none;padding-bottom:4rem">
     <div style="border:0.5px solid var(--line);padding:2.5rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center">
       <div>
-        <p style="font-family:var(--serif);font-size:clamp(20px,3vw,30px);font-weight:300;color:var(--ink);margin-bottom:0.5rem">Ready to get started?</p>
-        <p style="font-size:12px;color:var(--muted)">Describe your team's background and training objectives — we'll propose the right programme and format.</p>
+        <p style="font-family:var(--serif);font-size:clamp(20px,3vw,30px);font-weight:300;color:var(--ink);margin-bottom:0.5rem">Ready to enrol or enquire?</p>
+        <p style="font-size:12px;color:var(--muted)">Tell us about your team and training objectives — we'll confirm availability and format.</p>
       </div>
-      <a href="../contact.html" class="btn btn-pri" style="white-space:nowrap">Enquire →</a>
+      <a href="../contact.html" class="btn btn-pri" style="white-space:nowrap">Enquire now →</a>
     </div>
   </section>
 
 </div>
 </main>
-
 <footer>
   <span class="footer-mark">Cloud<span style="font-style:italic;color:var(--accent)">AIML</span> Consulting</span>
   <nav class="footer-links">
