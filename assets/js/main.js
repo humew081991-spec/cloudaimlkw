@@ -64,10 +64,20 @@ function initNav() {
 }
 
 // ── Google Analytics ──────────────────────────────────────────
-window.dataLayer = window.dataLayer || [];
-function gtag() { dataLayer.push(arguments); }
-gtag('js', new Date());
-gtag('config', 'G-20WG4S5HZG');
+(function() {
+  // Inject GA script tag if not already present
+  if (!document.querySelector('script[src*="googletagmanager"]')) {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-20WG4S5HZG';
+    document.head.appendChild(s);
+  }
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  window.gtag = gtag;
+  gtag('js', new Date());
+  gtag('config', 'G-20WG4S5HZG');
+})();
 
 // ── Boot ──────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
