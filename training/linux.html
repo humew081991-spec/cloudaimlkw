@@ -3,23 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Linux Training in Kuwait — RHEL, Ubuntu, Server Administration</title>
-<meta name="description" content="Linux training for IT professionals in Kuwait. Red Hat Enterprise Linux (RHEL), Ubuntu Server, Linux administration, shell scripting, and Linux for infrastructure engineers. Live online and in-person workshops.">
-<meta name="keywords" content="Red Hat Enterprise Linux · RHEL · Ubuntu Server · Linux Administration · Shell Scripting · Bash · Linux for VMware · Linux for OpenShift · RHCSA, Kuwait, Gulf, training, workshop, online training">
+<title>Linux Training Kuwait — RHEL, Ubuntu Server, Shell Scripting, RHCSA Prep | Cloud AI ML Consulting</title>
+<meta name="description" content="Linux training for IT professionals in Kuwait. Red Hat Enterprise Linux (RHEL) administration, Ubuntu Server, shell scripting, Linux for VMware and OpenShift environments, and RHCSA exam preparation. Live online and in-person workshops.">
+<meta name="keywords" content="Linux training Kuwait, RHEL training Kuwait, Red Hat Linux training, Ubuntu training, RHCSA exam prep Kuwait, Linux administration course, shell scripting training, Linux for VMware">
 <link rel="canonical" href="https://cloudaimlkw.com/training/linux.html">
 <link rel="stylesheet" href="../style.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230c0c0b'/><text x='4' y='24' font-size='18' fill='%23c8b89a' font-family='Georgia'>CA</text></svg>">
-  <!-- Google Analytics -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Linux Administration Training — RHEL & Ubuntu Server",
+  "description": "Linux training for IT professionals in Kuwait. Red Hat Enterprise Linux (RHEL) administration, Ubuntu Server, shell scripting, Linux for VMware and OpenShift environments, and RHCSA exam preparation. Live online and in-person workshops.",
+  "url": "https://cloudaimlkw.com/training/linux.html",
+  "provider": {
+    "@type": "Organization",
+    "name": "Cloud AI ML Consulting",
+    "url": "https://cloudaimlkw.com"
+  },
+  "educationalLevel": "Beginner — Intermediate",
+  "timeRequired": "P2D",
+  "availableLanguage": "English",
+  "courseMode": ["online", "onsite", "blended"],
+  "inLanguage": "en",
+  "locationCreated": {
+    "@type": "Place",
+    "name": "Kuwait"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{"@type":"Question","name":"I only know Windows — is this training suitable for me?","acceptedAnswer":{"@type":"Answer","text":"Yes — the first module assumes no prior Linux knowledge. The training is deliberately designed for Windows-focused infrastructure engineers who need to build practical Linux skills for modern environments that include RHEL, Ubuntu, and OpenShift."}},
+{"@type":"Question","name":"Does this training prepare me for the RHCSA exam?","acceptedAnswer":{"@type":"Answer","text":"The curriculum covers all RHCSA (EX200) exam objectives. The final module specifically addresses exam format and practice tasks. Most candidates find this training significantly accelerates their RHCSA preparation compared to self-study."}},
+{"@type":"Question","name":"Is RHEL or Ubuntu covered?","acceptedAnswer":{"@type":"Answer","text":"Both — the core modules use RHEL as the primary platform (more common in enterprise), with Ubuntu differences highlighted throughout. The package management module covers both dnf/yum and apt explicitly."}},
+{"@type":"Question","name":"How does Linux knowledge help with OpenShift and containers?","acceptedAnswer":{"@type":"Answer","text":"OpenShift runs on RHEL CoreOS and requires solid Linux fundamentals to operate effectively — particularly for troubleshooting node issues, managing storage, configuring networking, and understanding system logs. Linux competence is the foundation for all container platform work."}},
+{"@type":"Question","name":"Can this be delivered as a corporate on-site training for our IT team?","acceptedAnswer":{"@type":"Answer","text":"Yes — corporate on-site delivery is available across Kuwait and the Gulf region. We can customise the content to focus on the specific Linux distributions and use cases most relevant to your environment."}}]
+}
+</script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-20WG4S5HZG"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-20WG4S5HZG');
-  </script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-20WG4S5HZG');</script>
 </head>
 <body>
-
 <nav id="nav">
   <a href="../index.html" class="nav-mark">Cloud<span>AIML</span></a>
   <ul class="nav-links" id="nl">
@@ -32,96 +59,213 @@
   </ul>
   <button class="hamburger" id="hb" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
-
 <main>
 <div class="wrap">
 
+  <!-- HERO -->
   <section class="svc-hero">
-    <p style="font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent2)">Linux Training · Kuwait</p>
-    <h1 class="svc-hero-hed">Linux Training<br><em style="color:var(--accent)">Kuwait & Online</em></h1>
-    <p style="font-size:13px;color:var(--muted);max-width:580px;line-height:1.9">Practical Linux training for IT professionals operating in enterprise infrastructure environments — focused on Red Hat Enterprise Linux (RHEL) and Ubuntu Server as used in Nutanix AHV, OpenShift, VMware, and cloud deployments. Built for engineers who need to work confidently at the command line, not just follow runbooks.</p>
-    <div style="margin-top:1.5rem;display:flex;gap:1rem;flex-wrap:wrap">
-      <a href="../contact.html" class="btn btn-pri">Enquire about this training →</a>
-      <a href="../training.html" class="btn btn-ghost">All training programmes →</a>
+    <p style="font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent2)">Linux Training · Kuwait & Online</p>
+    <h1 class="svc-hero-hed" style="font-size:clamp(32px,4.5vw,52px)">Linux Training<br><em>Kuwait & Online</em></h1>
+    <p style="font-size:13px;color:var(--muted);max-width:600px;line-height:1.9;margin-bottom:1.5rem">Practical Linux training for IT professionals operating enterprise infrastructure — focused on Red Hat Enterprise Linux (RHEL) and Ubuntu Server as deployed in Nutanix AHV, OpenShift, VMware, and cloud environments. Built for engineers who need to work confidently at the command line and manage production Linux systems — not just follow runbooks written by someone else.</p>
+    <!-- QUICK FACTS -->
+    <div style="display:flex;gap:2rem;flex-wrap:wrap;padding:1.5rem 0;border-top:0.5px solid var(--line);border-bottom:0.5px solid var(--line);margin-bottom:1.5rem">
+      <div><p style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--hint);margin-bottom:4px">Duration</p><p style="font-size:13px;color:var(--ink)">2 days (modular)</p></div>
+      <div><p style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--hint);margin-bottom:4px">Level</p><p style="font-size:13px;color:var(--ink)">Beginner — Intermediate</p></div>
+      <div><p style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--hint);margin-bottom:4px">Delivery</p><p style="font-size:13px;color:var(--ink)">Online · In-Person · On-Site</p></div>
+      <div><p style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--hint);margin-bottom:4px">Certification alignment</p><p style="font-size:13px;color:var(--ink)">RHCSA (EX200) · RHCE (EX294)</p></div>
+    </div>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap">
+      <a href="../contact.html" class="btn btn-pri">Enquire about this course →</a>
+      <a href="../training.html" class="btn btn-ghost">All courses →</a>
     </div>
   </section>
 
+  <!-- WHAT YOU WILL LEARN -->
   <section>
-    <p class="label">Topics covered</p>
-    <div style="display:flex;flex-direction:column;gap:1px;background:var(--line);border:0.5px solid var(--line)">
-      
-      <div style="background:var(--bg);padding:1.5rem 1.8rem;display:grid;grid-template-columns:200px 1fr;gap:1.5rem;align-items:start">
-        <p style="font-family:var(--serif);font-size:16px;font-weight:400;color:var(--ink);line-height:1.3">Linux Fundamentals for Infrastructure Engineers</p>
-        <p style="font-size:11px;color:var(--muted);line-height:1.8">File system, process management, user administration, permissions, networking, and package management on RHEL and Ubuntu — from an infrastructure perspective.</p>
+    <p class="label">What you will learn</p>
+    <div style="border:0.5px solid var(--line)"><div style="display:flex;gap:10px;align-items:flex-start;padding:0.7rem 0;border-bottom:0.5px solid var(--line)"><span style="color:var(--accent2);font-size:14px;margin-top:1px">✓</span><p style="font-size:12px;color:var(--muted);line-height:1.7">Navigate the Linux file system and command line with confidence</p></div><div style="display:flex;gap:10px;align-items:flex-start;padding:0.7rem 0;border-bottom:0.5px solid var(--line)"><span style="color:var(--accent2);font-size:14px;margin-top:1px">✓</span><p style="font-size:12px;color:var(--muted);line-height:1.7">Manage users, groups, and file permissions in enterprise Linux environments</p></div><div style="display:flex;gap:10px;align-items:flex-start;padding:0.7rem 0;border-bottom:0.5px solid var(--line)"><span style="color:var(--accent2);font-size:14px;margin-top:1px">✓</span><p style="font-size:12px;color:var(--muted);line-height:1.7">Configure Linux networking — static IPs, DNS, routing, and firewall</p></div><div style="display:flex;gap:10px;align-items:flex-start;padding:0.7rem 0;border-bottom:0.5px solid var(--line)"><span style="color:var(--accent2);font-size:14px;margin-top:1px">✓</span><p style="font-size:12px;color:var(--muted);line-height:1.7">Install, update, and manage software packages with yum/dnf and apt</p></div><div style="display:flex;gap:10px;align-items:flex-start;padding:0.7rem 0;border-bottom:0.5px solid var(--line)"><span style="color:var(--accent2);font-size:14px;margin-top:1px">✓</span><p style="font-size:12px;color:var(--muted);line-height:1.7">Write Bash shell scripts to automate repetitive administration tasks</p></div><div style="display:flex;gap:10px;align-items:flex-start;padding:0.7rem 0;border-bottom:0.5px solid var(--line)"><span style="color:var(--accent2);font-size:14px;margin-top:1px">✓</span><p style="font-size:12px;color:var(--muted);line-height:1.7">Configure Linux for VMware — open-vm-tools, storage, and guest OS best practices</p></div><div style="display:flex;gap:10px;align-items:flex-start;padding:0.7rem 0;border-bottom:0.5px solid var(--line)"><span style="color:var(--accent2);font-size:14px;margin-top:1px">✓</span><p style="font-size:12px;color:var(--muted);line-height:1.7">Understand Linux prerequisites and system tuning for OpenShift and container platforms</p></div><div style="display:flex;gap:10px;align-items:flex-start;padding:0.7rem 0;border-bottom:0.5px solid var(--line)"><span style="color:var(--accent2);font-size:14px;margin-top:1px">✓</span><p style="font-size:12px;color:var(--muted);line-height:1.7">Prepare for the RHCSA (EX200) certification exam</p></div></div>
+  </section>
+
+  <!-- CURRICULUM -->
+  <section style="background:var(--bg2)">
+    <p class="label">Course curriculum</p>
+    <p style="font-size:12px;color:var(--muted);margin-bottom:1.5rem">8 modules · 2 days (modular)</p>
+    <div style="border:0.5px solid var(--line);background:var(--line)">
+      <div style="background:var(--bg2);padding:1.5rem 2rem;border-bottom:0.5px solid var(--line)">
+        <div style="display:grid;grid-template-columns:220px 1fr;gap:2rem;align-items:start">
+          <div>
+            <p style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--hint);margin-bottom:4px">Module 01</p>
+            <p style="font-family:var(--serif);font-size:16px;font-weight:400;color:var(--ink);line-height:1.3">Linux Fundamentals</p>
+          </div>
+          <ul style="list-style:none;padding:0"><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Linux distributions — RHEL, CentOS Stream, Ubuntu Server, and their differences</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">File system hierarchy — where things live and why</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Essential commands — navigation, file operations, piping, and redirection</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Text editors — vi/vim basics and nano</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Getting help — man pages, info, and --help</li></ul>
+        </div>
       </div>
-      <div style="background:var(--bg2);padding:1.5rem 1.8rem;display:grid;grid-template-columns:200px 1fr;gap:1.5rem;align-items:start">
-        <p style="font-family:var(--serif);font-size:16px;font-weight:400;color:var(--ink);line-height:1.3">Shell Scripting & Automation</p>
-        <p style="font-size:11px;color:var(--muted);line-height:1.8">Bash scripting for IT automation — writing scripts to manage servers, automate repetitive tasks, and reduce manual operations overhead.</p>
+      <div style="background:var(--bg);padding:1.5rem 2rem;border-bottom:0.5px solid var(--line)">
+        <div style="display:grid;grid-template-columns:220px 1fr;gap:2rem;align-items:start">
+          <div>
+            <p style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--hint);margin-bottom:4px">Module 02</p>
+            <p style="font-family:var(--serif);font-size:16px;font-weight:400;color:var(--ink);line-height:1.3">Users, Groups & Permissions</p>
+          </div>
+          <ul style="list-style:none;padding:0"><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">User and group management — useradd, usermod, groupadd</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">File permissions — read, write, execute, and the permission model</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Special permissions — SUID, SGID, and sticky bit</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">sudo configuration and privilege escalation</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Password policies and account management</li></ul>
+        </div>
       </div>
-      <div style="background:var(--bg);padding:1.5rem 1.8rem;display:grid;grid-template-columns:200px 1fr;gap:1.5rem;align-items:start">
-        <p style="font-family:var(--serif);font-size:16px;font-weight:400;color:var(--ink);line-height:1.3">Linux Networking</p>
-        <p style="font-size:11px;color:var(--muted);line-height:1.8">Network configuration, firewalld, SELinux, SSH, and troubleshooting connectivity issues in enterprise Linux environments.</p>
+      <div style="background:var(--bg2);padding:1.5rem 2rem;border-bottom:0.5px solid var(--line)">
+        <div style="display:grid;grid-template-columns:220px 1fr;gap:2rem;align-items:start">
+          <div>
+            <p style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--hint);margin-bottom:4px">Module 03</p>
+            <p style="font-family:var(--serif);font-size:16px;font-weight:400;color:var(--ink);line-height:1.3">Process & Service Management</p>
+          </div>
+          <ul style="list-style:none;padding:0"><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Process management — ps, top, kill, nice, and job control</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Systemd — units, services, targets, and journald</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Managing services — start, stop, enable, disable</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Scheduling — cron and at for task automation</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Resource monitoring — CPU, memory, and disk usage</li></ul>
+        </div>
       </div>
-      <div style="background:var(--bg2);padding:1.5rem 1.8rem;display:grid;grid-template-columns:200px 1fr;gap:1.5rem;align-items:start">
-        <p style="font-family:var(--serif);font-size:16px;font-weight:400;color:var(--ink);line-height:1.3">Linux for VMware Environments</p>
-        <p style="font-size:11px;color:var(--muted);line-height:1.8">Managing Linux VMs in VMware — VMware Tools, open-vm-tools, storage configuration, and Linux guest OS best practices in vSphere.</p>
+      <div style="background:var(--bg);padding:1.5rem 2rem;border-bottom:0.5px solid var(--line)">
+        <div style="display:grid;grid-template-columns:220px 1fr;gap:2rem;align-items:start">
+          <div>
+            <p style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--hint);margin-bottom:4px">Module 04</p>
+            <p style="font-family:var(--serif);font-size:16px;font-weight:400;color:var(--ink);line-height:1.3">Storage & File Systems</p>
+          </div>
+          <ul style="list-style:none;padding:0"><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Disk partitioning — fdisk, parted, and partition types</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Logical Volume Manager (LVM) — PVs, VGs, and LVs</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">File system creation and mounting — ext4, xfs</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">/etc/fstab — persistent mounts</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">NFS and SMB — network storage configuration</li></ul>
+        </div>
       </div>
-      <div style="background:var(--bg);padding:1.5rem 1.8rem;display:grid;grid-template-columns:200px 1fr;gap:1.5rem;align-items:start">
-        <p style="font-family:var(--serif);font-size:16px;font-weight:400;color:var(--ink);line-height:1.3">Linux for OpenShift & Containers</p>
-        <p style="font-size:11px;color:var(--muted);line-height:1.8">RHEL as the foundation for OpenShift nodes — system tuning, storage configuration, network requirements, and operating system prerequisites for container platforms.</p>
+      <div style="background:var(--bg2);padding:1.5rem 2rem;border-bottom:0.5px solid var(--line)">
+        <div style="display:grid;grid-template-columns:220px 1fr;gap:2rem;align-items:start">
+          <div>
+            <p style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--hint);margin-bottom:4px">Module 05</p>
+            <p style="font-family:var(--serif);font-size:16px;font-weight:400;color:var(--ink);line-height:1.3">Networking</p>
+          </div>
+          <ul style="list-style:none;padding:0"><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Network configuration — nmcli, nmtui, and configuration files</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Static IP, DNS, and gateway configuration</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">firewalld — zones, services, and port rules</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">SELinux — concepts, modes, and managing contexts</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">SSH — key-based authentication, sshd configuration, and tunnelling</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Network troubleshooting — ss, netstat, tcpdump, ping, traceroute</li></ul>
+        </div>
       </div>
-      <div style="background:var(--bg2);padding:1.5rem 1.8rem;display:grid;grid-template-columns:200px 1fr;gap:1.5rem;align-items:start">
-        <p style="font-family:var(--serif);font-size:16px;font-weight:400;color:var(--ink);line-height:1.3">RHCSA Exam Preparation</p>
-        <p style="font-size:11px;color:var(--muted);line-height:1.8">Structured preparation for the Red Hat Certified System Administrator (RHCSA) exam — covering all exam objectives with practical labs and exam technique.</p>
+      <div style="background:var(--bg);padding:1.5rem 2rem;border-bottom:0.5px solid var(--line)">
+        <div style="display:grid;grid-template-columns:220px 1fr;gap:2rem;align-items:start">
+          <div>
+            <p style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--hint);margin-bottom:4px">Module 06</p>
+            <p style="font-family:var(--serif);font-size:16px;font-weight:400;color:var(--ink);line-height:1.3">Package Management & Software</p>
+          </div>
+          <ul style="list-style:none;padding:0"><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">RPM and dnf/yum — installing, updating, and removing packages on RHEL</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">apt and dpkg — package management on Ubuntu</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Repository configuration</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Subscription Manager — registering RHEL with Red Hat</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Software compilation from source — when and how</li></ul>
+        </div>
+      </div>
+      <div style="background:var(--bg2);padding:1.5rem 2rem;border-bottom:0.5px solid var(--line)">
+        <div style="display:grid;grid-template-columns:220px 1fr;gap:2rem;align-items:start">
+          <div>
+            <p style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--hint);margin-bottom:4px">Module 07</p>
+            <p style="font-family:var(--serif);font-size:16px;font-weight:400;color:var(--ink);line-height:1.3">Shell Scripting & Automation</p>
+          </div>
+          <ul style="list-style:none;padding:0"><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Bash scripting fundamentals — variables, quoting, and expansions</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Control flow — if/else, for loops, while loops</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Functions and script organisation</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Input/output handling — stdin, stdout, stderr</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Practical automation scripts for IT administration</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Introduction to Ansible for infrastructure automation</li></ul>
+        </div>
+      </div>
+      <div style="background:var(--bg);padding:1.5rem 2rem;border-bottom:0.5px solid var(--line)">
+        <div style="display:grid;grid-template-columns:220px 1fr;gap:2rem;align-items:start">
+          <div>
+            <p style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--hint);margin-bottom:4px">Module 08</p>
+            <p style="font-family:var(--serif);font-size:16px;font-weight:400;color:var(--ink);line-height:1.3">Linux for VMware & OpenShift</p>
+          </div>
+          <ul style="list-style:none;padding:0"><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">open-vm-tools — installation and configuration for VMware VMs</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">RHEL on Nutanix AHV — Nutanix Guest Tools and best practices</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">Storage configuration for database and application servers</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">System tuning for OpenShift nodes — kernel parameters and resource limits</li><li style="font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:3px">RHCSA exam preparation — exam format, domains, and practice tasks</li></ul>
+        </div>
+      </div></div>
+  </section>
+
+  <!-- PREREQUISITES + WHO IT'S FOR -->
+  <section>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem">
+      <div>
+        <p class="label">Prerequisites</p>
+        <ul style="list-style:none;padding:0"><li style="font-size:12px;color:var(--muted);line-height:1.8;margin-bottom:4px">Basic IT literacy — understanding of files, directories, and processes</li><li style="font-size:12px;color:var(--muted);line-height:1.8;margin-bottom:4px">Familiarity with Windows Server administration is helpful but not required</li><li style="font-size:12px;color:var(--muted);line-height:1.8;margin-bottom:4px">No prior Linux experience required for the foundation module</li></ul>
+      </div>
+      <div>
+        <p class="label">Who this is for</p>
+        <p style="font-size:12px;color:var(--muted);line-height:1.9">Windows-focused IT engineers who need to build Linux skills for modern infrastructure, infrastructure teams managing RHEL or Ubuntu servers alongside VMware or Nutanix, engineers preparing for RHCSA certification, professionals moving into OpenShift or DevOps roles who need solid Linux foundations.</p>
       </div>
     </div>
   </section>
 
+  <!-- DELIVERY -->
   <section style="background:var(--bg2)">
     <p class="label">Delivery formats</p>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--line);border:0.5px solid var(--line)">
-      <div style="background:var(--bg2);padding:1.5rem">
-        <p style="font-family:var(--serif);font-size:17px;color:var(--ink);margin-bottom:0.5rem">Live Online</p>
-        <p style="font-size:11px;color:var(--muted);line-height:1.8">Instructor-led sessions via Zoom or Microsoft Teams. Interactive, with Q&A and screen-sharing of live environments. Recordings available for review.</p>
+      <div style="background:var(--bg2);padding:1.8rem">
+        <p style="font-family:var(--serif);font-size:18px;color:var(--ink);margin-bottom:0.6rem">Live Online</p>
+        <p style="font-size:11px;color:var(--muted);line-height:1.8">Instructor-led via Zoom or Microsoft Teams. Interactive sessions with live Q&A, screen sharing, and lab walkthroughs. Recordings provided.</p>
       </div>
-      <div style="background:var(--bg2);padding:1.5rem">
-        <p style="font-family:var(--serif);font-size:17px;color:var(--ink);margin-bottom:0.5rem">In-Person Kuwait</p>
-        <p style="font-size:11px;color:var(--muted);line-height:1.8">Face-to-face workshops in Kuwait. Small group sizes for maximum interaction and hands-on time. Custom scheduling available.</p>
+      <div style="background:var(--bg2);padding:1.8rem">
+        <p style="font-family:var(--serif);font-size:18px;color:var(--ink);margin-bottom:0.6rem">In-Person Kuwait</p>
+        <p style="font-size:11px;color:var(--muted);line-height:1.8">Face-to-face workshops in Kuwait City. Small groups for maximum interaction. Hands-on labs on real or simulated environments.</p>
       </div>
-      <div style="background:var(--bg2);padding:1.5rem">
-        <p style="font-family:var(--serif);font-size:17px;color:var(--ink);margin-bottom:0.5rem">Corporate On-Site</p>
-        <p style="font-size:11px;color:var(--muted);line-height:1.8">Delivered at your offices — using your environment as the reference point. Ideal for teams of 5 or more. Custom curriculum available.</p>
+      <div style="background:var(--bg2);padding:1.8rem">
+        <p style="font-family:var(--serif);font-size:18px;color:var(--ink);margin-bottom:0.6rem">Corporate On-Site</p>
+        <p style="font-size:11px;color:var(--muted);line-height:1.8">Delivered at your offices using your own environment as the reference. Custom scheduling for groups of 4 or more. Available across Kuwait and Gulf region.</p>
       </div>
     </div>
   </section>
 
+  <!-- WHY THIS TRAINER -->
   <section>
-    <p class="label">Who this is for</p>
-    <div style="border:0.5px solid var(--line);padding:2rem;background:var(--bg)">
-      <p style="font-size:13px;color:var(--muted);line-height:1.9;max-width:680px">Windows-focused IT engineers who need to build Linux skills, infrastructure teams managing RHEL or Ubuntu servers, engineers preparing for RHCSA certification.</p>
+    <p class="label">Why train with us</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:0.5px solid var(--line)">
+      <div style="background:var(--bg);padding:1.8rem">
+        <p style="font-family:var(--serif);font-size:17px;color:var(--ink);margin-bottom:0.5rem">Delivered by a practitioner</p>
+        <p style="font-size:11px;color:var(--muted);line-height:1.8">Every topic is drawn from 12 years of real enterprise deployments — banking, government, and enterprise in Kuwait. You get the real-world edge cases, not just vendor slides.</p>
+      </div>
+      <div style="background:var(--bg);padding:1.8rem">
+        <p style="font-family:var(--serif);font-size:17px;color:var(--ink);margin-bottom:0.5rem">Kuwait & Gulf context</p>
+        <p style="font-size:11px;color:var(--muted);line-height:1.8">Training designed for professionals working in the Gulf region — accounting for the regulatory environment, procurement landscape, and operational realities of Kuwait enterprise and government IT.</p>
+      </div>
+      <div style="background:var(--bg);padding:1.8rem">
+        <p style="font-family:var(--serif);font-size:17px;color:var(--ink);margin-bottom:0.5rem">Vendor-neutral perspective</p>
+        <p style="font-size:11px;color:var(--muted);line-height:1.8">No vendor bias. You will learn how technology actually works — including where it falls short — so you can make informed decisions, not just operate one vendor's implementation.</p>
+      </div>
+      <div style="background:var(--bg);padding:1.8rem">
+        <p style="font-family:var(--serif);font-size:17px;color:var(--ink);margin-bottom:0.5rem">Post-training support</p>
+        <p style="font-size:11px;color:var(--muted);line-height:1.8">30-day follow-up Q&A window after every course. If you hit issues applying what you learned, you have direct access to the trainer — not a support ticket queue.</p>
+      </div>
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section style="background:var(--bg2)">
+    <p class="label">Frequently asked questions</p>
+    <div style="max-width:720px">
+      <div style="border-bottom:0.5px solid var(--line);padding:1.2rem 0">
+        <p style="font-family:var(--serif);font-size:17px;font-weight:400;color:var(--ink);margin-bottom:0.5rem">I only know Windows — is this training suitable for me?</p>
+        <p style="font-size:12px;color:var(--muted);line-height:1.8">Yes — the first module assumes no prior Linux knowledge. The training is deliberately designed for Windows-focused infrastructure engineers who need to build practical Linux skills for modern environments that include RHEL, Ubuntu, and OpenShift.</p>
+      </div>
+      <div style="border-bottom:0.5px solid var(--line);padding:1.2rem 0">
+        <p style="font-family:var(--serif);font-size:17px;font-weight:400;color:var(--ink);margin-bottom:0.5rem">Does this training prepare me for the RHCSA exam?</p>
+        <p style="font-size:12px;color:var(--muted);line-height:1.8">The curriculum covers all RHCSA (EX200) exam objectives. The final module specifically addresses exam format and practice tasks. Most candidates find this training significantly accelerates their RHCSA preparation compared to self-study.</p>
+      </div>
+      <div style="border-bottom:0.5px solid var(--line);padding:1.2rem 0">
+        <p style="font-family:var(--serif);font-size:17px;font-weight:400;color:var(--ink);margin-bottom:0.5rem">Is RHEL or Ubuntu covered?</p>
+        <p style="font-size:12px;color:var(--muted);line-height:1.8">Both — the core modules use RHEL as the primary platform (more common in enterprise), with Ubuntu differences highlighted throughout. The package management module covers both dnf/yum and apt explicitly.</p>
+      </div>
+      <div style="border-bottom:0.5px solid var(--line);padding:1.2rem 0">
+        <p style="font-family:var(--serif);font-size:17px;font-weight:400;color:var(--ink);margin-bottom:0.5rem">How does Linux knowledge help with OpenShift and containers?</p>
+        <p style="font-size:12px;color:var(--muted);line-height:1.8">OpenShift runs on RHEL CoreOS and requires solid Linux fundamentals to operate effectively — particularly for troubleshooting node issues, managing storage, configuring networking, and understanding system logs. Linux competence is the foundation for all container platform work.</p>
+      </div>
+      <div style="border-bottom:0.5px solid var(--line);padding:1.2rem 0">
+        <p style="font-family:var(--serif);font-size:17px;font-weight:400;color:var(--ink);margin-bottom:0.5rem">Can this be delivered as a corporate on-site training for our IT team?</p>
+        <p style="font-size:12px;color:var(--muted);line-height:1.8">Yes — corporate on-site delivery is available across Kuwait and the Gulf region. We can customise the content to focus on the specific Linux distributions and use cases most relevant to your environment.</p>
+      </div></div>
+  </section>
+
+  <!-- RELATED COURSES -->
   <section>
-    <p class="label">Certification alignment</p>
-    <div style="border:0.5px solid var(--line);padding:2rem;background:var(--bg)">
-      <p style="font-size:12px;color:var(--muted);line-height:1.9">Red Hat Certified System Administrator (RHCSA) · Red Hat Certified Engineer (RHCE) — recommended post-training path</p>
-    </div>
+    <p class="label">Related courses</p>
+    <div style="border:0.5px solid var(--line);background:var(--line)"><a href="openshift.html" style="display:block;padding:1rem 1.2rem;background:var(--bg);border-bottom:0.5px solid var(--line);font-size:12px;color:var(--muted);transition:background 0.2s;text-decoration:none" onmouseover="this.style.background='var(--bg2)'" onmouseout="this.style.background='var(--bg)'">Red Hat OpenShift Training — Linux in Container Platforms →</a><a href="vmware.html" style="display:block;padding:1rem 1.2rem;background:var(--bg);border-bottom:0.5px solid var(--line);font-size:12px;color:var(--muted);transition:background 0.2s;text-decoration:none" onmouseover="this.style.background='var(--bg2)'" onmouseout="this.style.background='var(--bg)'">VMware Training — Linux Guest OS on vSphere →</a><a href="microsoft-ad.html" style="display:block;padding:1rem 1.2rem;background:var(--bg);border-bottom:0.5px solid var(--line);font-size:12px;color:var(--muted);transition:background 0.2s;text-decoration:none" onmouseover="this.style.background='var(--bg2)'" onmouseout="this.style.background='var(--bg)'">Microsoft AD & Entra ID Training — Identity for Mixed Environments →</a></div>
   </section>
 
+  <!-- CTA -->
   <section style="border:none;padding-bottom:4rem">
     <div style="border:0.5px solid var(--line);padding:2.5rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center">
       <div>
-        <p style="font-family:var(--serif);font-size:clamp(20px,3vw,30px);font-weight:300;color:var(--ink);margin-bottom:0.5rem">Ready to get started?</p>
-        <p style="font-size:12px;color:var(--muted)">Describe your team's background and training objectives — we'll propose the right programme and format.</p>
+        <p style="font-family:var(--serif);font-size:clamp(20px,3vw,30px);font-weight:300;color:var(--ink);margin-bottom:0.5rem">Ready to enrol or enquire?</p>
+        <p style="font-size:12px;color:var(--muted)">Tell us about your team and training objectives — we'll confirm availability and format.</p>
       </div>
-      <a href="../contact.html" class="btn btn-pri" style="white-space:nowrap">Enquire →</a>
+      <a href="../contact.html" class="btn btn-pri" style="white-space:nowrap">Enquire now →</a>
     </div>
   </section>
 
 </div>
 </main>
-
 <footer>
   <span class="footer-mark">Cloud<span style="font-style:italic;color:var(--accent)">AIML</span> Consulting</span>
   <nav class="footer-links">
