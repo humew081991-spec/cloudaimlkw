@@ -80,7 +80,26 @@ function initNav() {
 })();
 
 // ── Boot ──────────────────────────────────────────────────────
+
+// ── Conversion tracking ───────────────────────────────────────
+function initConversionTracking() {
+  document.querySelectorAll('a[href*="contact"]').forEach(function(el) {
+    var label = el.textContent.trim().toLowerCase();
+    if (label.includes('enquir') || label.includes('assess') || label.includes('touch') || label.includes('discuss')) {
+      el.addEventListener('click', function() {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'generate_lead', {
+            'event_category': 'cta',
+            'event_label': label.substring(0, 40)
+          });
+        }
+      });
+    }
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   loadComponent('site-header', 'header.html');
   loadComponent('site-footer', 'footer.html');
+  initConversionTracking();
 });
