@@ -98,8 +98,23 @@ function initConversionTracking() {
   });
 }
 
+
+// ── Mobile dropdown accordion ─────────────────────────────────
+function initMobileDropdowns() {
+  document.querySelectorAll('.has-dropdown > a').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        var li = this.closest('.has-dropdown');
+        li.classList.toggle('open');
+      }
+    });
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   loadComponent('site-header', 'header.html');
   loadComponent('site-footer', 'footer.html');
   initConversionTracking();
+  initMobileDropdowns();
 });
