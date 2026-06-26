@@ -1,9 +1,87 @@
 <nav id="nav">
   <a href="/index.html" class="nav-mark">Cloud<span>AIML</span></a>
   <ul class="nav-links" id="nl">
+
     <li><a href="/index.html">Home</a></li>
-    <li><a href="/services.html">Services</a></li>
-    <li><a href="/training.html">Training</a></li>
+
+    <!-- SERVICES DROPDOWN -->
+    <li class="has-dropdown">
+      <a href="/services.html">Services <span class="chevron">▾</span></a>
+      <div class="dropdown">
+        <div class="dropdown-inner">
+          <div class="dropdown-col">
+            <p class="dropdown-heading">Infrastructure</p>
+            <a href="/services/hci.html">
+              <span class="dropdown-title">Hyper-Converged Infrastructure</span>
+              <span class="dropdown-desc">Nutanix, VMware vSAN, Cisco HyperFlex</span>
+            </a>
+            <a href="/services/virtualisation-vdi.html">
+              <span class="dropdown-title">Virtualisation & VDI</span>
+              <span class="dropdown-desc">VMware Horizon, Citrix CVAD, NSX-T</span>
+            </a>
+            <a href="/services/storage.html">
+              <span class="dropdown-title">Enterprise Storage</span>
+              <span class="dropdown-desc">Pure Storage, IBM FlashSystem, vSAN</span>
+            </a>
+          </div>
+          <div class="dropdown-col">
+            <p class="dropdown-heading">Cloud & Modern IT</p>
+            <a href="/services/openshift.html">
+              <span class="dropdown-title">Red Hat OpenShift</span>
+              <span class="dropdown-desc">Containers on Nutanix & VMware</span>
+            </a>
+            <a href="/services/identity.html">
+              <span class="dropdown-title">Identity & Entra Migration</span>
+              <span class="dropdown-desc">Active Directory to Microsoft Entra ID</span>
+            </a>
+            <a href="/services/backup-dr.html">
+              <span class="dropdown-title">Backup & Disaster Recovery</span>
+              <span class="dropdown-desc">Veeam, Zerto, Rubrik, Veritas</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <!-- TRAINING DROPDOWN -->
+    <li class="has-dropdown">
+      <a href="/training.html">Training <span class="chevron">▾</span></a>
+      <div class="dropdown">
+        <div class="dropdown-inner">
+          <div class="dropdown-col">
+            <p class="dropdown-heading">Virtualisation & Infrastructure</p>
+            <a href="/training/vmware.html">
+              <span class="dropdown-title">VMware Training</span>
+              <span class="dropdown-desc">vSphere, NSX-T, Horizon, vSAN</span>
+            </a>
+            <a href="/training/nutanix.html">
+              <span class="dropdown-title">Nutanix Training</span>
+              <span class="dropdown-desc">HCI, AHV, Prism, NCP Exam Prep</span>
+            </a>
+            <a href="/training/windows-server.html">
+              <span class="dropdown-title">Windows Server Training</span>
+              <span class="dropdown-desc">Administration, Hyper-V, Clustering</span>
+            </a>
+          </div>
+          <div class="dropdown-col">
+            <p class="dropdown-heading">Cloud & Modern Platforms</p>
+            <a href="/training/openshift.html">
+              <span class="dropdown-title">Red Hat OpenShift Training</span>
+              <span class="dropdown-desc">Kubernetes, Containers, DevOps</span>
+            </a>
+            <a href="/training/linux.html">
+              <span class="dropdown-title">Linux Training</span>
+              <span class="dropdown-desc">RHEL, Ubuntu, Shell Scripting, RHCSA</span>
+            </a>
+            <a href="/training/microsoft-ad.html">
+              <span class="dropdown-title">Microsoft AD & Entra ID</span>
+              <span class="dropdown-desc">Active Directory, MFA, M365 Migration</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </li>
+
     <li><a href="/about.html">About</a></li>
     <li><a href="/blog.html">Insights</a></li>
     <li><a href="/contact.html" class="nav-cta">Work With Us</a></li>
@@ -12,3 +90,133 @@
     <span></span><span></span><span></span>
   </button>
 </nav>
+
+<style>
+/* ── DROPDOWN ───────────────────────────────────── */
+.has-dropdown { position: relative; }
+
+.has-dropdown > a { display: flex; align-items: center; gap: 4px; }
+
+.chevron {
+  font-size: 9px;
+  opacity: 0.5;
+  transition: transform 0.2s;
+  display: inline-block;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 16px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 300;
+  min-width: 560px;
+  background: #141413;
+  border: 0.5px solid rgba(255,255,255,0.1);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+/* Arrow pointer */
+.dropdown::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  background: #141413;
+  border-left: 0.5px solid rgba(255,255,255,0.1);
+  border-top: 0.5px solid rgba(255,255,255,0.1);
+  rotate: 45deg;
+}
+
+.has-dropdown:hover .dropdown,
+.has-dropdown:focus-within .dropdown {
+  display: block;
+  animation: fadeDown 0.18s ease;
+}
+
+.has-dropdown:hover .chevron {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateX(-50%) translateY(-6px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+.dropdown-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+.dropdown-col {
+  padding: 1.4rem 1.6rem;
+}
+
+.dropdown-col:first-child {
+  border-right: 0.5px solid rgba(255,255,255,0.07);
+}
+
+.dropdown-heading {
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #5a5752;
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.5px solid rgba(255,255,255,0.07);
+}
+
+.dropdown-col a {
+  display: block;
+  padding: 0.6rem 0.8rem;
+  margin: 0 -0.8rem;
+  text-decoration: none;
+  transition: background 0.15s;
+  border-radius: 2px;
+}
+
+.dropdown-col a:hover { background: rgba(255,255,255,0.04); }
+
+.dropdown-title {
+  display: block;
+  font-size: 12px;
+  color: #f0ede6;
+  letter-spacing: 0.01em;
+  margin-bottom: 2px;
+  transition: color 0.15s;
+}
+
+.dropdown-col a:hover .dropdown-title { color: #c8b89a; }
+
+.dropdown-desc {
+  display: block;
+  font-size: 10px;
+  color: #5a5752;
+  letter-spacing: 0.02em;
+}
+
+/* Mobile — collapse dropdown into accordion */
+@media (max-width: 768px) {
+  .dropdown {
+    position: static;
+    transform: none;
+    min-width: 100%;
+    box-shadow: none;
+    border: none;
+    border-top: 0.5px solid rgba(255,255,255,0.07);
+    display: none;
+    animation: none;
+  }
+  .dropdown::before { display: none; }
+  .dropdown-inner { grid-template-columns: 1fr; }
+  .dropdown-col:first-child { border-right: none; border-bottom: 0.5px solid rgba(255,255,255,0.07); }
+  .has-dropdown.open .dropdown { display: block; }
+  .has-dropdown.open .chevron { transform: rotate(180deg); opacity: 1; }
+}
+</style>
