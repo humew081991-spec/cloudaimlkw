@@ -99,16 +99,45 @@ function initConversionTracking() {
 }
 
 
-// ── Mobile dropdown accordion ─────────────────────────────────
+// ── Production-grade nav controller ──────────────────────────
 function initMobileDropdowns() {
-  document.querySelectorAll('.has-dropdown > a').forEach(function(link) {
+  var items = document.querySelectorAll('.has-dropdown');
+
+  items.forEach(function(li) {
+    var link = li.querySelector('a');
+
+    // Mobile: click toggles open/close
     link.addEventListener('click', function(e) {
       if (window.innerWidth <= 768) {
         e.preventDefault();
-        var li = this.closest('.has-dropdown');
-        li.classList.toggle('open');
+        var isOpen = li.classList.contains('open');
+        // Close all others first
+        items.forEach(function(other) { other.classList.remove('open'); });
+        if (!isOpen) li.classList.add('open');
       }
     });
+
+    // ESC closes dropdown (desktop + mobile)
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        items.forEach(function(i) { i.classList.remove('open'); });
+        link.blur();
+      }
+    });
+  });
+
+  // Click outside closes all dropdowns
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.has-dropdown')) {
+      items.forEach(function(i) { i.classList.remove('open'); });
+    }
+  });
+
+  // Close dropdowns on resize to desktop
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
+      items.forEach(function(i) { i.classList.remove('open'); });
+    }
   });
 }
 
