@@ -282,6 +282,7 @@ footer{
   display: flex;
   align-items: center;
   gap: 4px;
+  cursor: pointer;
 }
 
 .chevron {
@@ -291,29 +292,39 @@ footer{
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
+/* Fix #3 — anchor to left edge, handle vertical via padding-top (fix #4) */
+/* Fix #5 — z-index 1000 not 9999 */
 .dropdown {
   position: absolute;
-  top: calc(100% + 18px);
-  left: 50%;
-  transform: translateX(-50%) translateY(6px);
-  z-index: 9999;
+  top: 100%;
+  left: 0;
+  padding-top: 12px; /* creates hover bridge — no dead zone */
+  z-index: 1000;
   min-width: 580px;
-  background: #141413;
-  border: 0.5px solid rgba(255,255,255,0.1);
-  box-shadow: 0 24px 64px rgba(0,0,0,0.65);
+
+  /* Fix #1 — one unified visibility system (max-height) for all breakpoints */
+  max-height: 0;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+  overflow: hidden;
+  transition: opacity 0.22s ease, max-height 0.28s ease, visibility 0.22s ease;
+}
+
+.dropdown-panel {
+  background: #141413;
+  border: 0.5px solid rgba(255,255,255,0.1);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.65);
+  position: relative;
 }
 
 /* Arrow tip */
-.dropdown::before {
+.dropdown-panel::before {
   content: '';
   position: absolute;
   top: -6px;
-  left: 50%;
-  transform: translateX(-50%) rotate(45deg);
+  left: 80px;
+  transform: rotate(45deg);
   width: 11px;
   height: 11px;
   background: #141413;
@@ -321,18 +332,57 @@ footer{
   border-top: 0.5px solid rgba(255,255,255,0.1);
 }
 
-/* Show on hover — smooth fade + slide */
-.has-dropdown:hover > .dropdown,
-.has-dropdown:focus-within > .dropdown {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transform: translateX(-50%) translateY(0);
+/* Desktop hover — show */
+@media (min-width: 769px) {
+  .has-dropdown:hover > .dropdown,
+  .has-dropdown:focus-within > .dropdown {
+    max-height: 500px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  .has-dropdown:hover .chevron,
+  .has-dropdown:focus-within .chevron {
+    transform: rotate(180deg);
+    opacity: 1;
+  }
 }
 
-.has-dropdown:hover .chevron {
-  transform: rotate(180deg);
-  opacity: 1;
+/* Fix #2 — mobile: disable hover entirely, JS .open controls state */
+@media (max-width: 768px) {
+  .has-dropdown:hover > .dropdown { 
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .has-dropdown.open > .dropdown {
+    max-height: 500px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  .has-dropdown.open .chevron {
+    transform: rotate(180deg);
+    opacity: 1;
+  }
+  .dropdown {
+    position: static;
+    min-width: 100%;
+    padding-top: 0;
+    box-shadow: none;
+  }
+  .dropdown-panel {
+    box-shadow: none;
+    border: none;
+    border-top: 0.5px solid rgba(255,255,255,0.07);
+  }
+  .dropdown-panel::before { display: none; }
+  .dropdown-inner { grid-template-columns: 1fr !important; }
+  .dropdown-col:first-child {
+    border-right: none;
+    border-bottom: 0.5px solid rgba(255,255,255,0.07);
+  }
 }
 
 .dropdown-inner {
@@ -387,27 +437,4 @@ footer{
   font-size: 10px;
   color: var(--hint);
   letter-spacing: 0.02em;
-}
-
-/* Mobile accordion */
-@media (max-width: 768px) {
-  .dropdown {
-    position: static;
-    transform: none !important;
-    min-width: 100%;
-    box-shadow: none;
-    border: none;
-    border-top: 0.5px solid rgba(255,255,255,0.07);
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    display: none;
-    transition: none;
-  }
-  .dropdown::before { display: none; }
-  .dropdown-inner { grid-template-columns: 1fr; }
-  .dropdown-col:first-child { border-right: none; border-bottom: 0.5px solid rgba(255,255,255,0.07); }
-  .has-dropdown:hover > .dropdown { display: none; }
-  .has-dropdown.open > .dropdown { display: block !important; }
-  .has-dropdown.open .chevron { transform: rotate(180deg); opacity: 1; }
 }
