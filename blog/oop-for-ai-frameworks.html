@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Why You Can't Read LangChain Without Understanding Classes | Cloud AI ML Consulting</title>
-<meta name="description" content="Every major AI framework — LangChain, LlamaIndex, LangGraph — is built on object-oriented Python. Understanding classes, inheritance, and encapsulation is what separates engineers who can read and extend these frameworks from those who can only copy examples.">
-<meta name="keywords" content="LangChain architecture, understanding AI frameworks, object oriented programming AI, LlamaIndex classes, AI agent framework design, Python OOP for AI engineers">
+<meta name="description" content="Every major AI framework is built on the same architectural pattern. Understanding it is what separates engineers who can design AI systems from those who can only assemble tutorials.">
+<meta name="keywords" content="AI framework architecture, LangChain architecture, agentic AI system design, AI agent architecture Kuwait, enterprise AI design patterns">
 <link rel="canonical" href="https://cloudaimlkw.com/blog/oop-for-ai-frameworks.html">
 <meta property="og:title" content="Why You Can't Read LangChain Without Understanding Classes">
-<meta property="og:description" content="Every major AI framework is built on object-oriented Python. Understanding classes and inheritance is what separates engineers who can extend these frameworks from those who can only copy examples.">
+<meta property="og:description" content="Every major AI framework is built on the same architectural pattern. Understanding it is what separates engineers who can design AI systems from those who can only assemble tutorials.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://cloudaimlkw.com/blog/oop-for-ai-frameworks.html">
 <meta property="og:image" content="https://cloudaimlkw.com/assets/og-image.png">
@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Cloud AI ML Consulting">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Why You Can't Read LangChain Without Understanding Classes">
-<meta name="twitter:description" content="Every major AI framework is built on object-oriented Python. Here is why that matters for engineers extending them.">
+<meta name="twitter:description" content="Every major AI framework is built on the same architectural pattern. Here is why that matters.">
 <link rel="stylesheet" href="../style.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230c0c0b'/><text x='4' y='24' font-size='18' fill='%23c8b89a' font-family='Georgia'>CA</text></svg>">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-20WG4S5HZG"></script>
@@ -26,7 +26,7 @@
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": "Why You Can't Read LangChain Without Understanding Classes",
-  "description": "Every major AI framework is built on object-oriented Python. Understanding classes and inheritance is what separates engineers who can extend these frameworks from those who can only copy examples.",
+  "description": "Every major AI framework is built on the same architectural pattern. Understanding it is what separates engineers who can design AI systems from those who can only assemble tutorials.",
   "publisher": {
     "@type": "Organization",
     "name": "Cloud AI ML Consulting",
@@ -47,140 +47,126 @@
     <div class="blog-article-header">
       <p class="label">Insights · Generative AI & Agentic AI</p>
       <h1 class="blog-article-title">Why You Can't Read LangChain<br><em>Without Understanding Classes</em></h1>
-      <p class="blog-article-meta">July 2026 · 6 min read</p>
+      <p class="blog-article-meta">July 2026 · 5 min read</p>
       <p class="blog-article-deck">
-        Every major AI framework — LangChain, LlamaIndex, CrewAI, LangGraph — is written in
-        object-oriented Python. That is not incidental. It reflects a design principle that
-        determines whether an engineer can extend these frameworks or is limited to copying
-        examples from documentation. The distinction matters more than most AI onboarding
-        material admits.
+        Every serious AI framework is built on the same architectural pattern.
+        Recognising it is what separates engineers who can design and extend
+        AI systems from those who can only assemble what a tutorial gave them.
+        This is not a coding lesson. It is a way of thinking about how
+        complex systems are structured — one that infrastructure architects
+        already apply, without always realising it transfers directly to AI.
       </p>
     </div>
 
     <div class="blog-article-body">
 
-      <h2>Two ways to bind logic together</h2>
+      <h2>Two ways to structure a system</h2>
       <p>
-        In Python, there are two fundamental ways to group related statements: a function
-        and a class. A function binds a set of statements under a single name — call the
-        function, the statements execute. A class does something different: it binds
-        functions and data together into a single reusable structure, and requires
-        instantiation before use.
+        There are two fundamental ways to organise the logic inside any software
+        system. The first is a simple, stateless unit — something that takes
+        an input, performs one job, and hands back a result. The second is
+        a self-contained component that holds its own state and exposes a
+        set of related capabilities that all operate on that state together.
       </p>
       <p>
-        The natural question is why a class is necessary at all when a function already
-        provides encapsulation. The answer becomes obvious once the system has more than
-        one related capability that needs to share state.
+        Most infrastructure architects already think in the second pattern
+        without naming it that way. A storage array is not a collection of
+        unrelated commands — it is a single entity with configuration, state,
+        and a defined set of operations that all act on that same state
+        consistently. A network switch behaves the same way. So does a
+        virtual machine. The architecture holds state and behaviour together,
+        deliberately, because that is what makes the system predictable
+        and safe to operate at scale.
       </p>
       <p>
-        Consider a banking account. A function can check a balance. A separate function
-        can process a debit. A third can process a credit. Each works in isolation.
-        But the moment these three operations need to share the same account balance —
-        consistently, across every operation, for every individual account — a function
-        alone cannot hold that state. A class can. It binds the balance (the data) and
-        the operations that act on it (the methods) into a single unit, and every new
-        account becomes a new, isolated instance of that unit.
-      </p>
-
-      <h2>Why this is exactly how AI frameworks are built</h2>
-      <p>
-        Open the source of any serious AI framework and the same pattern repeats.
-        An agent in LangChain is a class. A retriever in LlamaIndex is a class.
-        A node in LangGraph is a class. Each holds internal state — memory, configuration,
-        connection details — and exposes methods that act on that state.
-      </p>
-      <p>
-        This is why an engineer who understands functions but not classes can copy
-        a working example from documentation, but struggles the moment they need to
-        customise behaviour beyond what the example shows. Extending a framework means
-        understanding what state a class holds, which methods are meant to be overridden,
-        and how inheritance is being used to share common behaviour across related components.
+        This is exactly the architectural decision that separates simple
+        automation scripts from proper AI frameworks.
       </p>
 
-      <h2>Inheritance is how frameworks avoid repeating themselves</h2>
+      <h2>Why AI frameworks are built as self-contained components</h2>
       <p>
-        Inheritance lets a new class reuse the structure of an existing one while
-        overriding only what needs to differ. A practical way to see this: imagine
-        a base vehicle class holding features every vehicle shares — four wheels,
-        an engine reference, a manufacturing year. A petrol vehicle and an electric
-        vehicle both inherit that shared structure, but each defines its own refuelling
-        behaviour — one pumps fuel, the other charges a battery.
+        Every serious AI framework — LangChain, LlamaIndex, CrewAI, LangGraph —
+        is architected around self-contained components that hold their own
+        state. An agent holds its memory, its configuration, its tool
+        connections. A retriever holds its index, its embedding strategy,
+        its connection to a data source. Each component exposes a defined
+        set of operations that act on that internal state consistently.
       </p>
       <p>
-        AI frameworks use this pattern constantly. A base agent class defines the
-        core reasoning loop — observe, plan, act, reflect. Specific agent types
-        inherit that loop and override only the planning logic — a research agent
-        plans differently than a coding agent, but both share the same underlying
-        execution structure. Recognising this pattern when reading framework source
-        code is the difference between confusion and clarity.
-      </p>
-
-      <h2>Polymorphism — why the same method name means different things</h2>
-      <p>
-        A related concept worth understanding is polymorphism — the ability for
-        different classes to implement the same method name with different behaviour.
-        A shape's <em>area</em> calculation differs entirely between a circle and
-        a rectangle, but both expose an <em>area</em> method. The calling code does
-        not need to know which shape it is dealing with — it simply calls the method
-        appropriate to the object it has.
+        This is not a stylistic choice by the framework authors. It is
+        the same architectural necessity that governs any system that needs
+        to manage state reliably across many isolated instances at once —
+        multiple agents, multiple conversations, multiple retrieval sessions,
+        all running independently without interfering with each other.
       </p>
       <p>
-        This is exactly how AI frameworks let different tools, retrievers, or agents
-        be swapped interchangeably. A workflow built around a generic "retrieve"
-        method works identically whether the underlying retriever is querying
-        a vector database, a SQL database, or a file system — because each retriever
-        class implements that method according to its own logic, while presenting
-        the same interface to everything that calls it.
+        An engineer who understands only how to call a function can follow
+        a tutorial. An engineer who understands why a system is architected
+        around self-contained, stateful components can read the framework's
+        internals, understand what each component is actually responsible for,
+        and make an informed decision about where to extend it safely.
+        That distinction is the entire difference between operating a
+        framework and being dependent on it.
       </p>
 
-      <h2>The other half of production AI: model persistence</h2>
+      <h2>Shared structure, specialised behaviour</h2>
       <p>
-        A separate but equally practical concept for infrastructure teams evaluating
-        AI deployments is model persistence — how a trained model's state is saved
-        so it does not need to be retrained every time it is used.
+        A second architectural pattern worth recognising is how these frameworks
+        avoid repeating themselves. A common structure is defined once — the
+        base shape of "an agent" or "a retriever" — and specific variations
+        inherit that shared structure while only changing what genuinely differs.
       </p>
       <p>
-        There are three common formats, and the choice between them has real
-        infrastructure implications:
+        Infrastructure teams do this constantly at the platform level. A base
+        server image, hardened and standardised once, becomes the foundation
+        for every workload-specific variant deployed on top of it — each one
+        inheriting the shared baseline and only diverging where the actual
+        requirement differs. AI frameworks apply the identical principle to
+        their internal architecture. A base reasoning loop — observe, plan,
+        act, reflect — is defined once. A research agent and a coding agent
+        both inherit that same loop, differing only in how they plan.
       </p>
-
-      <div style="border:0.5px solid var(--line);margin:2rem 0">
-        <div style="padding:1.4rem 1.8rem;border-bottom:0.5px solid var(--line)">
-          <p style="font-family:var(--serif);font-size:17px;color:var(--ink);margin-bottom:0.4rem">Pickle</p>
-          <p style="font-size:12px;color:var(--muted);line-height:1.8">Python's native serialisation format. Simple and fast for small to medium models, but not designed for large datasets and carries security considerations — deserialising an untrusted pickle file can execute arbitrary code.</p>
-        </div>
-        <div style="padding:1.4rem 1.8rem;border-bottom:0.5px solid var(--line)">
-          <p style="font-family:var(--serif);font-size:17px;color:var(--ink);margin-bottom:0.4rem">Joblib</p>
-          <p style="font-size:12px;color:var(--muted);line-height:1.8">Built for larger objects with significant numerical data — the standard choice for scikit-learn models with substantial parameter arrays. More efficient than pickle at scale, though the same trust considerations apply.</p>
-        </div>
-        <div style="padding:1.4rem 1.8rem">
-          <p style="font-family:var(--serif);font-size:17px;color:var(--ink);margin-bottom:0.4rem">ONNX</p>
-          <p style="font-size:12px;color:var(--muted);line-height:1.8">An open, framework-independent format designed for secure, portable model deployment. The right choice when a model needs to move between environments, be served by a different runtime, or when the deployment context requires stronger security guarantees than pickle or joblib provide.</p>
-        </div>
-      </div>
-
       <p>
-        For infrastructure teams, this decision affects storage architecture, API
-        design, and how models are versioned and rolled back — the same operational
-        disciplines already applied to application deployments now need to extend
-        to model artefacts.
+        Recognising this pattern when evaluating a framework tells you
+        immediately where the real customisation points are, and where
+        you are looking at shared, load-bearing infrastructure that should
+        not be touched carelessly.
       </p>
 
-      <h2>What this means in practice</h2>
+      <h2>Interchangeable components behind a consistent interface</h2>
       <p>
-        Infrastructure teams evaluating a move into AI delivery sometimes assume the
-        learning curve is entirely new territory — unfamiliar mathematics, unfamiliar
-        tooling. In reality, the software engineering foundation is the same discipline
-        that has always underpinned reliable systems: understanding how state is held,
-        how behaviour is shared and overridden, and how components expose consistent
-        interfaces to each other.
+        The third pattern is what allows these frameworks to swap components
+        without breaking the systems built on top of them. Different retrieval
+        sources — a vector database, a document store, a search index — can
+        all be swapped behind the same consistent interface, because each
+        implements the shared operation according to its own internal logic
+        while presenting an identical contract to everything that calls it.
       </p>
       <p>
-        Teams that already have strong object-oriented fundamentals from infrastructure
-        automation, API development, or platform engineering are closer to being
-        AI-framework-ready than the marketing around AI tools tends to suggest.
-        The gap is not conceptual. It is exposure — knowing which patterns in the
-        code they are about to read map to concepts they already understand.
+        This is precisely the design principle behind infrastructure abstraction
+        layers — a storage interface that behaves consistently whether the
+        backend is flash, hybrid, or object storage; a load balancer configuration
+        that works the same way regardless of which backend pool it is routing to.
+        The value is the same in both domains: the system built on top does not
+        need to change when the underlying component does.
+      </p>
+
+      <h2>Why this matters more than the framework choice</h2>
+      <p>
+        Teams evaluating AI vendors and frameworks often focus the conversation
+        on which framework to select. The more consequential question is whether
+        the team evaluating them understands the architectural principles all
+        of these frameworks share. A framework choice can be changed later.
+        Architectural literacy either exists on the team or it does not.
+      </p>
+      <p>
+        Infrastructure teams that have spent years designing systems around
+        shared state, inheritance of standard configuration, and interchangeable
+        components behind stable interfaces are not starting from zero when
+        they approach agentic AI. They are recognising a familiar architecture
+        wearing a new name — and that recognition is what allows them to
+        evaluate, extend, and operate these systems with the same discipline
+        they already apply everywhere else in the environment.
       </p>
 
     </div>
@@ -188,7 +174,7 @@
     <div class="blog-related">
       <p class="label">Related posts</p>
       <a href="/blog/python-conditionals-ai-agents.html" class="blog-card">
-        <p class="blog-tag">Generative AI · Python</p>
+        <p class="blog-tag">Generative AI</p>
         <p class="blog-title">How AI agents think — decision logic for infrastructure engineers</p>
       </a>
       <a href="/blog/ai-infrastructure-conversation.html" class="blog-card">
