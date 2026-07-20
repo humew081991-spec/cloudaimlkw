@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Why Object-Oriented Programming Is the Grammar of AI Agent Frameworks | Cloud AI ML Consulting</title>
+<meta name="description" content="LangChain, LlamaIndex, and CrewAI are built as classes and objects. Understanding why frameworks are structured this way is what lets infrastructure engineers read, customise, and trust agent code instead of treating it as a black box.">
+<meta name="keywords" content="object oriented programming AI agents, LangChain architecture, how agent frameworks work, Python classes for AI, infrastructure engineers learning AI">
+<link rel="canonical" href="https://cloudaimlkw.com/blog/oop-agent-frameworks.html">
+<meta property="og:title" content="Why Object-Oriented Programming Is the Grammar of AI Agent Frameworks">
+<meta property="og:description" content="LangChain, LlamaIndex, and CrewAI are built as classes and objects. Understanding why is what lets infrastructure engineers read and trust agent code.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://cloudaimlkw.com/blog/oop-agent-frameworks.html">
+<meta property="og:image" content="https://cloudaimlkw.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Cloud AI ML Consulting">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Why Object-Oriented Programming Is the Grammar of AI Agent Frameworks">
+<meta name="twitter:description" content="Understanding why agent frameworks are built as classes is what lets infrastructure engineers read and trust agent code.">
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230c0c0b'/><text x='4' y='24' font-size='18' fill='%23c8b89a' font-family='Georgia'>CA</text></svg>">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-20WG4S5HZG"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Why Object-Oriented Programming Is the Grammar of AI Agent Frameworks",
+  "description": "LangChain, LlamaIndex, and CrewAI are built as classes and objects. Understanding why is what lets infrastructure engineers read and trust agent code.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Cloud AI ML Consulting",
+    "url": "https://cloudaimlkw.com"
+  },
+  "datePublished": "2026-07-19",
+  "url": "https://cloudaimlkw.com/blog/oop-agent-frameworks.html"
+}
+</script>
+</head>
+<body>
+<div id="site-header"></div>
+<main>
+<div class="wrap">
+
+  <article class="blog-article">
+
+    <div class="blog-article-header">
+      <p class="label">Insights · Generative AI & Agentic AI</p>
+      <h1 class="blog-article-title">Why Object-Oriented Programming<br><em>Is the Grammar of AI Agent Frameworks</em></h1>
+      <p class="blog-article-meta">July 2026 · 6 min read</p>
+      <p class="blog-article-deck">
+        Every major agentic AI framework — LangChain, LlamaIndex, CrewAI, LangGraph —
+        is built the same way underneath: as classes and objects. Infrastructure engineers
+        who skip this fact tend to treat these frameworks as black boxes to be configured
+        rather than systems to be understood. That distinction matters more than it first appears.
+      </p>
+    </div>
+
+    <div class="blog-article-body">
+
+      <h2>Vocabulary before application</h2>
+      <p>
+        There is a temptation, when learning any new technology, to skip straight to the
+        application layer — call the API, get the result, move on. This works until
+        something breaks, or until a customisation is needed that no tutorial covers.
+        At that point, the difference between someone who understands the underlying
+        structure and someone who only knows the surface syntax becomes obvious.
+      </p>
+      <p>
+        Agent frameworks are a clear example. A person can call
+        <code style="font-size:12px;background:var(--bg2);padding:2px 6px">chain.invoke()</code>
+        without understanding what a chain object actually is. That gets you through
+        a demo. It does not get you through debugging a production agent that is
+        behaving unexpectedly, or customising an agent's memory handling for a
+        specific enterprise use case. For that, you need to understand the grammar —
+        classes, objects, inheritance, encapsulation — because that grammar is
+        literally how these frameworks are written.
+      </p>
+
+      <h2>Why a class instead of a function</h2>
+      <p>
+        A reasonable question when first encountering object-oriented code: if a
+        function can already accept input and return output, why wrap it in a class
+        at all? The answer becomes clear once a system needs to bundle multiple
+        related behaviours together, along with the state those behaviours operate on.
+      </p>
+      <p>
+        Consider an agent that needs to hold a conversation. It needs to remember
+        previous messages, decide what tool to call next, execute that tool, and
+        update its memory with the result. Each of those is a distinct capability.
+        A single function cannot cleanly hold all of them together along with the
+        conversation state they depend on. A class can — bundling the memory,
+        the decision logic, and the tool-execution methods into one coherent unit
+        that can be created, reused, and extended.
+      </p>
+      <p>
+        This is precisely why every agent framework is built around classes.
+        An agent is not one function — it is a bundle of related capabilities
+        operating on shared state. Object-oriented design is the natural fit
+        for that requirement, not an arbitrary implementation choice.
+      </p>
+
+      <h2>The class is the template, the object is the instance</h2>
+      <p>
+        One distinction that clarifies a great deal of agent framework behaviour:
+        a class is a template, and an object is a specific instance created from
+        that template. When a framework defines an <code style="font-size:12px;background:var(--bg2);padding:2px 6px">Agent</code>
+        class, it is defining the blueprint — what capabilities every agent has,
+        what state it tracks, what methods it exposes. Each individual agent you
+        create in your application is an object — a specific instance of that
+        blueprint, with its own memory, its own configuration, its own conversation
+        history.
+      </p>
+      <p>
+        This is why two agents built from the same class do not interfere with
+        each other. Each object is isolated — its own memory, its own state.
+        Changing one agent's configuration does not affect another agent built
+        from the same underlying class. Understanding this isolation is essential
+        when deploying multiple agents in the same application — for example,
+        separate agents handling different departments or different customer
+        conversations within the same system.
+      </p>
+
+      <h2>Inheritance is why frameworks don't repeat themselves</h2>
+      <p>
+        Agent frameworks define a base class with common capabilities, then build
+        more specific agent types on top of it through inheritance. A base agent
+        class might define how to call a language model and how to parse a response.
+        A more specialised agent — one designed for tool use, or one designed for
+        multi-step reasoning — inherits those base capabilities and adds its own
+        specific behaviour on top.
+      </p>
+      <p>
+        This matters practically in two ways. First, it explains why so much
+        agent framework documentation references a small set of base classes
+        that everything else extends — once you understand the base, the
+        specialised variants become far easier to read, because they are only
+        adding or overriding a handful of methods rather than reimplementing
+        everything from scratch.
+      </p>
+      <p>
+        Second, it is the same principle enterprise IT teams already use when
+        managing configuration hierarchies — a base policy or base template
+        defines common settings, and specific instances inherit and override
+        only what is different. A change to the base propagates everywhere
+        that inherits from it, without needing to update every instance individually.
+        Agent framework design follows the identical logic.
+      </p>
+
+      <h2>Encapsulation and why agent internals stay hidden</h2>
+      <p>
+        Encapsulation is the principle of bundling data and the methods that
+        operate on that data together, while controlling what is exposed to
+        the outside world. This is why, when using an agent framework, you
+        typically call a small number of public methods — invoke, run, stream —
+        while the internal mechanics of memory management, prompt construction,
+        and response parsing remain hidden inside the class.
+      </p>
+      <p>
+        This is a deliberate design choice, not an accident. It allows framework
+        maintainers to improve or rewrite the internal implementation without
+        breaking applications built on top of it, as long as the public interface
+        stays consistent. For anyone building on these frameworks, it means the
+        stable contract to depend on is the public method signatures — not the
+        internal implementation details, which can and do change between versions.
+      </p>
+
+      <h2>Polymorphism — same interface, different behaviour</h2>
+      <p>
+        Agent frameworks support multiple types of agents, multiple types of
+        memory, multiple types of tools — all accessed through a consistent
+        interface, even though the underlying behaviour differs significantly.
+        A conversational memory object and a vector-store-backed memory object
+        both expose the same basic methods for storing and retrieving context,
+        even though what happens internally is completely different — one holds
+        a simple list of messages, the other performs similarity search across
+        embeddings.
+      </p>
+      <p>
+        This is polymorphism in practice — the same method call producing
+        different behaviour depending on which specific object it is called on.
+        It is what allows a developer to swap one memory implementation for
+        another, or one tool for another, without rewriting the surrounding
+        agent logic. For infrastructure teams evaluating agent frameworks,
+        recognising this pattern makes it much easier to understand what
+        can be swapped or customised without disrupting the rest of the system.
+      </p>
+
+      <h2>What this means practically</h2>
+      <p>
+        None of this is abstract theory disconnected from deployment decisions.
+        It has direct, practical consequences for anyone architecting agent-based
+        systems in an enterprise environment:
+      </p>
+
+      <div style="border:0.5px solid var(--line);margin:2rem 0">
+        <div style="padding:1.4rem 1.8rem;border-bottom:0.5px solid var(--line)">
+          <p style="font-family:var(--serif);font-size:17px;color:var(--ink);margin-bottom:0.4rem">Reading framework source code becomes possible</p>
+          <p style="font-size:12px;color:var(--muted);line-height:1.8">When an agent behaves unexpectedly in production, the ability to open the framework's source and trace through class definitions and inheritance chains is what separates a quick diagnosis from an extended outage.</p>
+        </div>
+        <div style="padding:1.4rem 1.8rem;border-bottom:0.5px solid var(--line)">
+          <p style="font-family:var(--serif);font-size:17px;color:var(--ink);margin-bottom:0.4rem">Customisation stops being guesswork</p>
+          <p style="font-size:12px;color:var(--muted);line-height:1.8">Knowing that a specific behaviour lives in a particular class method means customisation becomes a targeted change — extending a class or overriding a method — rather than trial and error with configuration flags.</p>
+        </div>
+        <div style="padding:1.4rem 1.8rem">
+          <p style="font-family:var(--serif);font-size:17px;color:var(--ink);margin-bottom:0.4rem">Architecture decisions get evaluated properly</p>
+          <p style="font-size:12px;color:var(--muted);line-height:1.8">Choosing between frameworks, or deciding whether to build a custom agent architecture in-house, requires understanding what each framework's class structure actually provides — not just what the marketing page claims.</p>
+        </div>
+      </div>
+
+      <p>
+        Infrastructure teams already understand hierarchy, inheritance of
+        configuration, and encapsulated interfaces — these are the same
+        principles behind well-designed IaC modules, Kubernetes operators,
+        and enterprise storage abstraction layers. The transition to reading
+        and evaluating agent frameworks is less of a leap than it first appears,
+        provided the object-oriented foundation is solid.
+      </p>
+
+      <p>
+        That foundation is not optional groundwork to get through before the
+        real work begins. It is the real work — because every agent framework
+        in production today is written in this language, and fluency in it
+        is what turns a framework from a black box into a system you can trust,
+        debug, and extend.
+      </p>
+
+    </div>
+
+    <div class="blog-related">
+      <p class="label">Related posts</p>
+      <a href="/blog/python-conditionals-ai-agents.html" class="blog-card">
+        <p class="blog-tag">Generative AI</p>
+        <p class="blog-title">How AI agents think — decision logic for infrastructure engineers</p>
+      </a>
+      <a href="/blog/ai-infrastructure-conversation.html" class="blog-card">
+        <p class="blog-tag">Generative AI</p>
+        <p class="blog-title">Why infrastructure architects belong at the center of the AI deployment conversation</p>
+      </a>
+    </div>
+
+  </article>
+
+</div>
+</main>
+<div id="site-footer"></div>
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>
